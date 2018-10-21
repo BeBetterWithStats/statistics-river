@@ -1,5 +1,7 @@
 package fr.bbws.bo.statistics.river.mapper;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,6 +10,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
+
+import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.common.transport.TransportAddress;
+import org.elasticsearch.common.xcontent.XContentType;
+import org.elasticsearch.transport.client.PreBuiltTransportClient;
 
 import fr.bbws.bo.statistics.river.model.KEY_WORDS;
 import fr.bbws.bo.statistics.river.model.Player;
@@ -24,6 +34,7 @@ public class ElasticSearchMapper {
 	static List<String> noplay_key_words = new ArrayList<String>();
 
 	
+	@SuppressWarnings("resource")
 	public static void generateDocuments(Path file, Player player, String field, String oppositeTeam, String umpire, Date date) {
 
 		initialise();
@@ -68,6 +79,22 @@ public class ElasticSearchMapper {
 // ############## FIN -- PARCOURIR LE FICHIER
 // ############## FIN -- ET LE STOCKER EN MEMOIRE
 
+		
+// ############## OUVERTURE DU SERVEUR ELASTICSEARCH
+		
+		TransportClient client = null;
+		
+		try {
+			
+			Settings settings = Settings.builder().put("cluster.name", "elasticsearch").build();
+			client = new PreBuiltTransportClient(settings).addTransportAddress(new TransportAddress(InetAddress.getByName("localhost"), 9300));
+			
+		} catch (UnknownHostException e) {
+			
+			System.out.println("[FATAL] Impossible de se connecter au serveur ElasticSearch : " + "localhost:9300");
+			e.printStackTrace();
+		}
+
 
 		
 
@@ -87,7 +114,7 @@ public class ElasticSearchMapper {
 // ############## ON DECOUPE CHAQUE INNING EN ACTION
 		
 		boolean print_error = true;
-		StringBuffer json = new StringBuffer();
+		Map<String, Object> json = new TreeMap<String, Object>();
 		
 		for (String inning : innings) {
 			
@@ -97,7 +124,7 @@ public class ElasticSearchMapper {
 				
 				for (String play : plays) {
 					
-					json.delete(0, json.length()); // reinitilisation du json
+					json.clear(); // reinitilisation du json
 					print_error = true;
 					
 					for (String key : at_bat_key_words.keySet()) {
@@ -139,33 +166,22 @@ public class ElasticSearchMapper {
 							}
 							*/
 							
-							json.append("{");
-							json.append("\"day\"").append(": ").append("\"").append(date.toString()).append("\"").append(",");
-							json.append("\"field\"").append(": ").append("\"").append(field).append("\"").append(","); 
-							json.append("\"opposite team\"").append(": ").append("\"").append(oppositeTeam).append("\"").append(",");
-							json.append("\"umpire\"").append(": {")
-								.append("\"").append("id").append("\"").append(": ").append("\"").append(umpire).append("\"").append(",")
-								.append("\"").append("prenom").append("\"").append(": ").append("\"").append("TODO").append("\"").append(",") // TODO prenom
-								.append("\"").append("nom").append("\"").append(": ").append("\"").append("TODO").append("\"") // TODO nom
-								.append("}").append(","); 
-							json.append("\"player\"").append(": {")
-								.append("\"").append("id").append("\"").append(": ").append("\"").append(player.getName()).append("\"").append(",")
-								.append("\"").append("prenom").append("\"").append(": ").append("\"").append("TODO").append("\"").append(",") // TODO prenom
-								.append("\"").append("nom").append("\"").append(": ").append("\"").append("TODO").append("\"").append(",") // TODO nom
-								.append("\"").append("position in field").append("\"").append(": ").append(player.getFieldPosition()).append(",") 
-								.append("\"").append("batting order").append("\"").append(": ").append(player.getBattingOrder()).append(",")
-								.append("\"").append("team").append("\"").append(": ").append("\"").append(player.getTeam()).append("\"") 
-								.append("}").append(","); 
-							json.append("\"play\"").append(": {")
-								.append("\"").append("when").append("\"").append(": ").append("\"").append(SearchInFileUtils.searchBetween(inning, player.getTeam(), "- </b>")).append("\"").append(",")
-								.append("\"").append("where").append("\"").append(": ").append(at_bat_key_words.get(key).intValue()).append(",") 
-								.append("\"").append("slugging").append("\"").append(": ").append(slugging_key_words.get(key) != null ? slugging_key_words.get(key).intValue() : KEY_WORDS.SLUGGING_ZERO.intValue()).append(",")
-								.append("\"").append("against").append("\"").append(": ").append("\"").append("TODO").append("\"") // TODO opposite pitcher
-								.append("}");  
-							json.append("}");
 							
-							System.out.println("[DEBUG] json = " + json);
-							// TODO mettre ici l'envoi du message dans Elastic Search
+							json.put("day", date.toString());
+							json.put("field", field);
+							json.put("opposite-team", oppositeTeam);
+							json.put("umpire-id", umpire);
+							json.put("player-id", player.getName());
+							json.put("player-team", player.getTeam());
+							json.put("player-field-position", player.getFieldPosition());
+							json.put("player-batting-order", player.getBattingOrder());
+							json.put("play-when", SearchInFileUtils.searchBetween(inning, player.getTeam(), "- </b>"));
+							json.put("play-where", at_bat_key_words.get(key));
+							json.put("play-slugging", slugging_key_words.get(key) != null ? slugging_key_words.get(key).intValue() - KEY_WORDS.SLUGGING_ZERO.intValue() : 0);
+							json.put("play-against", "TODO"); // TODO opposite pitcher
+							
+							IndexResponse response = client.prepareIndex("baseball-eu", "play").setSource(json, XContentType.JSON).get();
+							
 							break;							
 						}
 					}
@@ -190,6 +206,12 @@ public class ElasticSearchMapper {
 			}
 		}
 		// FIN - DECOUPAGE DE CHAQUE INNING EN ACTION
+		
+
+		// ON FERME LA CONNEXION A ELASTICSEARCH
+		if (client != null) {
+			client.close();
+		}
 	}
 	
 	private static void initialise() {

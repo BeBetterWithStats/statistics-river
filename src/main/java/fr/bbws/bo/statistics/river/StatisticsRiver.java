@@ -70,6 +70,13 @@ public class StatisticsRiver {
 							// ####  2  ### on recherche les attributs 'field', 'date' et 'home plat umpire'
 							System.out.println("\n");
 							
+							
+/*
+ * TODO revoir le format de la date
+ * 
+ * date_hour_minute_second or strict_date_hour_minute_second 
+ * A formatter that combines a full date, two digit hour of day, two digit minute of hour, and two digit second of minute : yyyy-MM-dd'T'HH:mm:ss.
+ */
 							DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy HH:mm", Locale.ENGLISH);
 							LocalDateTime localDate = LocalDateTime.parse(searchDate(buffer.toString()) + " " + searchTime(buffer.toString()), formatter);
 							Date _date = Timestamp.valueOf( localDate);
