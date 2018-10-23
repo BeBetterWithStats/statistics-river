@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import fr.bbws.bo.statistics.river.model.KEY_WORDS;
 import fr.bbws.bo.statistics.river.model.Player;
@@ -87,7 +88,7 @@ public class ConsoleMapper {
 // ############## ON DECOUPE CHAQUE INNING EN ACTION
 		
 		boolean print_error = true;
-		StringBuffer json = new StringBuffer();
+		Map<String, Object> json = new TreeMap<String, Object>();
 		
 		for (String inning : innings) {
 			
@@ -97,7 +98,7 @@ public class ConsoleMapper {
 				
 				for (String play : plays) {
 					
-					json.delete(0, json.length()); // reinitilisation du json
+					json.clear(); // reinitilisation du json
 					print_error = true;
 					
 					for (String key : at_bat_key_words.keySet()) {
@@ -137,8 +138,7 @@ public class ConsoleMapper {
 									"opposite pitcher": "QWERTY"
 								}
 							}
-							*/
-							
+							*/ /*
 							json.append("{");
 							json.append("\"day\"").append(": ").append("\"").append(date.toString()).append("\"").append(",");
 							json.append("\"field\"").append(": ").append("\"").append(field).append("\"").append(","); 
@@ -163,6 +163,20 @@ public class ConsoleMapper {
 								.append("\"").append("against").append("\"").append(": ").append("\"").append("TODO").append("\"") // TODO opposite pitcher
 								.append("}");  
 							json.append("}");
+							*/
+							
+							json.put("day", date.toString());
+							json.put("field", field);
+							json.put("opposite-team", oppositeTeam);
+							json.put("umpire-id", umpire);
+							json.put("player-id", player.getName());
+							json.put("player-team", player.getTeam());
+							json.put("player-field-position", player.getFieldPosition());
+							json.put("player-batting-order", player.getBattingOrder());
+							json.put("play-when", SearchInFileUtils.searchBetween(inning, player.getTeam(), "- </b>"));
+							json.put("play-where", at_bat_key_words.get(key));
+							json.put("play-slugging", slugging_key_words.get(key) != null ? slugging_key_words.get(key).intValue() - KEY_WORDS.SLUGGING_ZERO.intValue() : 0);
+							json.put("play-against", "TODO"); // TODO opposite pitcher
 							
 							System.out.println("[DEBUG] json = " + json);
 							break;							
