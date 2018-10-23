@@ -32,10 +32,14 @@ La rivière générant les actions à partir des différents sites web qui hébe
 1. Créer une arborescence \<root\>/Documents/Developpement/Bbws/
 2. `git config --global user.name bebetterwithstats@gmail.com`
 3. `git clone <mettre_ici_url_du_git_project>`
-4. Modifier un fichier
-5. `git add <mettre_ici_nom_du_fichier>`
-6. `git commit -m "<mettre_ici_un_commentaire>"`
-7. `git push origin master`
+4. Se positionner en ligne de commande dans le répertoire nouvelement créé
+5. `mvn eclipse:eclipse`
+
+# Modification d'un projet
+1. Modifier un fichier
+2. `git add <mettre_ici_nom_du_fichier>`
+3. `git commit -m "<mettre_ici_un_commentaire>"`
+4. `git push origin master`
 
 
 # Initialiation du projet si le projet est vide
