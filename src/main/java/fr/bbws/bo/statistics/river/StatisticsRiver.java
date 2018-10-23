@@ -15,6 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
+import fr.bbws.bo.statistics.river.mapper.ConsoleMapper;
 import fr.bbws.bo.statistics.river.mapper.ElasticSearchMapper;
 import fr.bbws.bo.statistics.river.model.KEY_WORDS;
 import fr.bbws.bo.statistics.river.model.Player;
@@ -101,14 +102,23 @@ public class StatisticsRiver {
 							System.out.println("Away team = " + _awayTeam);
 							
 							for (Player _player : _awayTeam) {
-								ElasticSearchMapper.generateDocuments(
-																current_file,
-																_player,
-																_field,
-																_homeTeamName,
-																_umpire,
-																_date
-																);
+								ConsoleMapper.generateDocuments(
+										current_file,
+										_player,
+										_field,
+										_homeTeamName,
+										_umpire,
+										_date
+										);
+								
+//								ElasticSearchMapper.generateDocuments(
+//																current_file,
+//																_player,
+//																_field,
+//																_homeTeamName,
+//																_umpire,
+//																_date
+//																);
 							}
 							
 							
@@ -119,14 +129,23 @@ public class StatisticsRiver {
 							System.out.println("Home team = " + _homeTeam);
 							
 							for (Player _player : _homeTeam) {
-								ElasticSearchMapper.generateDocuments(
-																current_file,
-																_player,
-																_field,
-																_awayTeamName,
-																_umpire,
-																_date
-																);
+								ConsoleMapper.generateDocuments(
+										current_file,
+										_player,
+										_field,
+										_awayTeamName,
+										_umpire,
+										_date
+										);
+								
+//								ElasticSearchMapper.generateDocuments(
+//																current_file,
+//																_player,
+//																_field,
+//																_awayTeamName,
+//																_umpire,
+//																_date
+//																);
 							}
 							
 							System.out.println("\n");
