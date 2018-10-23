@@ -50,6 +50,7 @@ public class Player {
 		int nb_hit = 0;
 		String[] zero = { "0.000", "0.000", ".000", "00", "0", ""};
 		
+		/*
 		nb_ab = this.ab[KEY_WORDS.PITCHER.intValue()] 
 				+ this.ab[KEY_WORDS.CATCHER.intValue()]
 					+ this.ab[KEY_WORDS.FIRST_BASE.intValue()]
@@ -75,6 +76,8 @@ public class Player {
 		
 		String avg = Double.toString( (double) Math.round( (double) nb_hit / nb_ab * 1000) / 1000);
 		return avg + zero[ avg.length()];
+		*/
+		return "TODO"; // TODO revoir l'algorithme de calcul de l'avg
 	}
 
 	public int[] getHit() {
