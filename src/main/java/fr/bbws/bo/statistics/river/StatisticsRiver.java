@@ -28,8 +28,8 @@ public class StatisticsRiver {
 		long begin = System.currentTimeMillis();
 
 		ArrayList<Path> file_directories = new ArrayList<Path>();
-		file_directories.add(Paths.get("/Users/alexandrelods/Documents/Developpement/bbws/Games/ForTest"));
-//		file_directories.add(Paths.get("D:\\A352189\\Document(s) projet\\Baseball\\stats 2018 ROUEN\\Game test"));
+//		file_directories.add(Paths.get("/Users/alexandrelods/Documents/Developpement/bbws/Games/ForTest"));
+		file_directories.add(Paths.get("D:\\A352189\\Sources\\Games\\ForTest"));
 
 		System.out.println("##########  ----------------------------- ##########");
 		System.out.println("##########  BASEBALL GAME UTILS GENERATOR ##########");
