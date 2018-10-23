@@ -213,8 +213,7 @@ public class ElasticSearchMapper {
 			client.close();
 		}
 	}
-
-	private static void initialise() {
+private static void initialise() {
 		
 		//at_bat_key_words.put(" reach on a fielding error by 1b, SAC", FieldingPosition.SACRIFICE);
 		//at_bat_key_words.put(" reach on a fielding error by 2b, SAC", FieldingPosition.SACRIFICE);
@@ -341,7 +340,9 @@ public class ElasticSearchMapper {
 		plate_appearance_words.put(" hit into double play 1b", KEY_WORDS.FIRST_BASE);
 		plate_appearance_words.put(" hit into double play 2b", KEY_WORDS.SECOND_BASE);
 		plate_appearance_words.put(" hit into double play 3b", KEY_WORDS.THIRD_BASE);
-		plate_appearance_words.put(" hit into double play c", KEY_WORDS.CATCHER);
+		plate_appearance_words.put(" hit into double play c,", KEY_WORDS.CATCHER);
+		plate_appearance_words.put(" hit into double play c;", KEY_WORDS.CATCHER);
+		plate_appearance_words.put(" hit into double play c.", KEY_WORDS.CATCHER);
 		plate_appearance_words.put(" hit into double play p", KEY_WORDS.PITCHER);
 		plate_appearance_words.put(" hit into double play ss", KEY_WORDS.SHORTSTOP);
 		plate_appearance_words.put(" homered down the lf line", KEY_WORDS.LEFT_FIELD);
@@ -523,7 +524,9 @@ public class ElasticSearchMapper {
 		plate_appearance_words.put(" reached on a fielder's choice to second base", KEY_WORDS.SECOND_BASE);
 		plate_appearance_words.put(" reached on a fielder's choice to shortstop", KEY_WORDS.SHORTSTOP);
 		plate_appearance_words.put(" reached on a fielder's choice to third base", KEY_WORDS.THIRD_BASE);
-		plate_appearance_words.put(" reached on a fielder's choice", KEY_WORDS.UNKNOW_LOCATION_OF_BATTED_BALL);
+		plate_appearance_words.put(" reached on a fielder's choice,", KEY_WORDS.UNKNOW_LOCATION_OF_BATTED_BALL);
+		plate_appearance_words.put(" reached on a fielder's choice;", KEY_WORDS.UNKNOW_LOCATION_OF_BATTED_BALL);
+		plate_appearance_words.put(" reached on a fielder's choice.", KEY_WORDS.UNKNOW_LOCATION_OF_BATTED_BALL);
 		plate_appearance_words.put(" reached on a fielding error by 1b", KEY_WORDS.FIRST_BASE);
 		plate_appearance_words.put(" reached on a fielding error by 2b", KEY_WORDS.SECOND_BASE);
 		plate_appearance_words.put(" reached on a fielding error by 3b", KEY_WORDS.THIRD_BASE);
@@ -539,7 +542,9 @@ public class ElasticSearchMapper {
 		plate_appearance_words.put(" reached on a throwing error by 1b", KEY_WORDS.FIRST_BASE);
 		plate_appearance_words.put(" reached on a throwing error by 2b", KEY_WORDS.SECOND_BASE);
 		plate_appearance_words.put(" reached on a throwing error by 3b", KEY_WORDS.THIRD_BASE);
-		plate_appearance_words.put(" reached on a throwing error by c", KEY_WORDS.CATCHER);
+		plate_appearance_words.put(" reached on a throwing error by c.", KEY_WORDS.CATCHER);
+		plate_appearance_words.put(" reached on a throwing error by c;", KEY_WORDS.CATCHER);
+		plate_appearance_words.put(" reached on a throwing error by c,", KEY_WORDS.CATCHER);
 		plate_appearance_words.put(" reached on a throwing error by cf", KEY_WORDS.RIGHT_FIELD);
 		plate_appearance_words.put(" reached on a throwing error by lf", KEY_WORDS.RIGHT_FIELD);
 		plate_appearance_words.put(" reached on a throwing error by p", KEY_WORDS.PITCHER);
