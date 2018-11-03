@@ -54,3 +54,7 @@ La rivière générant les actions à partir des différents sites web qui hébe
 - [Documentation utilisation de l'API](https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/index.html)
 - Delete all index : curl -X DELETE "localhost:9200/baseball-eu
 
+
+# TODO list
+- [ ] Revoir le format de la date de chaque document
+- [ ] Ajouter un index permettant de trier une liste de document ES _play_ 
