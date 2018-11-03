@@ -122,7 +122,7 @@ public class ElasticSearchMapper {
 		
 		for (String inning : innings) {
 			
-			List<String> plays = SearchInFileUtils.searchAfterWithAfterWordAndSpaceIncluded(inning, player.getName());
+			List<String> plays = SearchInFileUtils.searchAfterWithAfterWordAndSpaceIncluded(inning, player.getID());
 			
 			if (null != plays) {
 				
@@ -133,7 +133,7 @@ public class ElasticSearchMapper {
 					
 					for (String key : plate_appearance_words.keySet()) {
 						
-						if (play.startsWith(player.getName() + key)) { // si un des mot clé apparait
+						if (play.startsWith(player.getID() + key)) { // si un des mot clé apparait
 
 							print_error = false;
 							
@@ -175,7 +175,7 @@ public class ElasticSearchMapper {
 							json.put("field", field);
 							json.put("opposite-team", oppositeTeam);
 							json.put("umpire-id", umpire);
-							json.put("player-id", player.getName());
+							json.put("player-id", player.getID());
 							json.put("player-team", player.getTeam());
 							json.put("player-field-position", player.getFieldPosition());
 							json.put("player-batting-order", player.getBattingOrder());
@@ -194,7 +194,7 @@ public class ElasticSearchMapper {
 						
 						for (String key : noplay_key_words) {
 							
-							if (play.startsWith(player.getName() + key)) {
+							if (play.startsWith(player.getID() + key)) {
 								print_error = false;
 							}
 						}

@@ -1,7 +1,15 @@
 package fr.bbws.bo.statistics.river.model;
 public class Player {
 
+	private String id;
+	
 	private String name;
+	
+	private String firstName;
+	
+	private KEY_WORDS throwingSide;
+	
+	private KEY_WORDS battingSide;
 	
 	private String jersey;
 	
@@ -15,8 +23,8 @@ public class Player {
 	
 	private int[] ab;
 	
-	public Player( String name, String team, String jersey, KEY_WORDS position, int order) {
-		this.name = name;
+	public Player( String id, String team, String jersey, KEY_WORDS position, int order) {
+		this.id = id;
 		this.hit = new int[ KEY_WORDS.MAX.intValue()];			
 		this.ab = new int[ KEY_WORDS.MAX.intValue()];
 		this.jersey = jersey;
@@ -25,8 +33,8 @@ public class Player {
 		this.battingOrder = order;
 	}
 
-	public String getName() {
-		return name;
+	public String getID() {
+		return id;
 	}
 
 	public String getJersey() {
@@ -122,7 +130,39 @@ public class Player {
 		
 		return Integer.toString( left) + " | " +Integer.toString( center) + " | " + Integer.toString( right);
 
-	}	
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public KEY_WORDS getThrowingSide() {
+		return throwingSide;
+	}
+
+	public KEY_WORDS getBattingSide() {
+		return battingSide;
+	}
+
+	public void setBattingSide(KEY_WORDS battingSide) {
+		this.battingSide = battingSide;
+	}
+	
+	public void setThrowingSide(KEY_WORDS throwingSide) {
+		this.throwingSide = throwingSide;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	public void setFieldPosition(KEY_WORDS position) {
 		this.fieldPosition = position;
@@ -180,7 +220,7 @@ public class Player {
 		}
 		*/
 		
-		String value = "Ord. " + this.battingOrder + " " + this.name + " #" + this.jersey + " " + this.fieldPosition;
+		String value = "Ord. " + this.battingOrder + " " + this.id + " #" + this.jersey + " " + this.fieldPosition;
 		return value;
 		
 	}
