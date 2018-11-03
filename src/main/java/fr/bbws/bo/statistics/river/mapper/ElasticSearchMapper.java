@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
@@ -33,6 +36,7 @@ public class ElasticSearchMapper {
 	
 	static List<String> noplay_key_words = new ArrayList<String>();
 
+	final static Logger logger = LogManager.getLogger(ElasticSearchMapper.class.getName());
 	
 	@SuppressWarnings("resource")
 	public static void generateDocuments(Path file, Player player, String field, String oppositeTeam, String umpire, Date date) {
@@ -91,7 +95,7 @@ public class ElasticSearchMapper {
 			
 		} catch (UnknownHostException e) {
 			
-			System.out.println("[FATAL] Impossible de se connecter au serveur ElasticSearch : " + "localhost:9300");
+			logger.fatal("[FATAL] Impossible de se connecter au serveur ElasticSearch : " + "localhost:9300");
 			e.printStackTrace();
 		}
 
@@ -196,7 +200,7 @@ public class ElasticSearchMapper {
 						}
 						
 						if (print_error) {
-							System.out.println("[ERROR] missing play = '" + play + "' [" + file + "]");
+							logger.error("[ERROR] missing play = '" + play + "' [" + file + "]");
 							print_error = false;
 						} else {
 							// NE RIEN FAIRE

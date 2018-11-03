@@ -15,7 +15,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
-import fr.bbws.bo.statistics.river.mapper.ConsoleMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import fr.bbws.bo.statistics.river.mapper.ElasticSearchMapper;
 import fr.bbws.bo.statistics.river.model.KEY_WORDS;
 import fr.bbws.bo.statistics.river.model.Player;
@@ -23,18 +25,19 @@ import fr.bbws.bo.statistics.utils.SearchInFileUtils;
 
 public class StatisticsRiver {
 
-
+	final static Logger logger = LogManager.getLogger(StatisticsRiver.class.getName());
+	
 	public static void main(String[] args) {
 
 		long begin = System.currentTimeMillis();
 
 		ArrayList<Path> file_directories = new ArrayList<Path>();
-//		file_directories.add(Paths.get("/Users/alexandrelods/Documents/Developpement/bbws/Games/ForTest"));
-		file_directories.add(Paths.get("D:\\A352189\\Sources\\Games\\ForTest"));
+		file_directories.add(Paths.get("/Users/alexandrelods/Documents/Developpement/bbws/Games/ForTest"));
+		// file_directories.add(Paths.get("D:\\A352189\\Sources\\Games\\ForTest"));
 
-		System.out.println("##########  ----------------------------- ##########");
-		System.out.println("##########  BASEBALL GAME UTILS GENERATOR ##########");
-		System.out.println("##########  ----------------------------- ##########");
+		logger.info("##########  ----------------------------- ##########");
+		logger.info("##########  BASEBALL GAME UTILS GENERATOR ##########");
+		logger.info("##########  ----------------------------- ##########");
 
 		// ############## PARCOURIR LE REPERTOIRE DES FEUILLES DE MATCH
 		// ############## ET LE STOCKER EN MEMOIRE
@@ -69,7 +72,7 @@ public class StatisticsRiver {
 							}
 							
 							// ####  2  ### on recherche les attributs 'field', 'date' et 'home plat umpire'
-							System.out.println("\n");
+							logger.info("\n");
 							
 							
 /*
@@ -84,9 +87,9 @@ public class StatisticsRiver {
 							String _umpire = searchHomePlateUmpire(buffer.toString());
 							String _field = searchField(buffer.toString());
 							
-							System.out.println("Home plate umpire = " + _umpire);
-							System.out.println("Date & Heure = " + _date);
-							System.out.println("Field = " + _field);
+							logger.info("Home plate umpire = " + _umpire);
+							logger.info("Date & Heure = " + _date);
+							logger.info("Field = " + _field);
 							
 							
 							// ####  3  ### on recherche le nom de chaque équipe
@@ -98,57 +101,57 @@ public class StatisticsRiver {
 							// ####  4  ### on recherche le line up de chaque équipe
 							List<Player> _awayTeam = searchAwayTeamStartingLineUp( buffer.toString());
 							
-							System.out.println("Away team = " + _awayTeamName);
-							System.out.println("Away team = " + _awayTeam);
+							logger.info("Away team = " + _awayTeamName);
+							logger.info("Away team = " + _awayTeam);
 							
 							for (Player _player : _awayTeam) {
-								ConsoleMapper.generateDocuments(
+								/*ConsoleMapper.generateDocuments(
 										current_file,
 										_player,
 										_field,
 										_homeTeamName,
 										_umpire,
 										_date
-										);
+										);*/
 								
-//								ElasticSearchMapper.generateDocuments(
-//																current_file,
-//																_player,
-//																_field,
-//																_homeTeamName,
-//																_umpire,
-//																_date
-//																);
+								ElasticSearchMapper.generateDocuments(
+																current_file,
+																_player,
+																_field,
+																_homeTeamName,
+																_umpire,
+																_date
+																);
 							}
 							
 							
 							
 							List<Player> _homeTeam = searchHomeTeamStartingLineUp( buffer.toString());
 							
-							System.out.println("Home team = " + _homeTeamName);
-							System.out.println("Home team = " + _homeTeam);
+							logger.info("Home team = " + _homeTeamName);
+							logger.info("Home team = " + _homeTeam);
 							
 							for (Player _player : _homeTeam) {
-								ConsoleMapper.generateDocuments(
+								/*ConsoleMapper.generateDocuments(
 										current_file,
 										_player,
 										_field,
 										_awayTeamName,
 										_umpire,
 										_date
-										);
+										);*/
 								
-//								ElasticSearchMapper.generateDocuments(
-//																current_file,
-//																_player,
-//																_field,
-//																_awayTeamName,
-//																_umpire,
-//																_date
-//																);
+								ElasticSearchMapper.generateDocuments(
+																current_file,
+																_player,
+																_field,
+																_awayTeamName,
+																_umpire,
+																_date
+																);
 							}
 							
-							System.out.println("\n");
+							logger.info("\n");
 						}					
 						
 					} // ############## FIN DU FICHIER COURANT
@@ -163,7 +166,7 @@ public class StatisticsRiver {
 		
 		
 		long time = System.currentTimeMillis() - begin;
-		System.out.println("##########  [INFO] Execution time = " + time);
+		logger.info("##########  [INFO] Execution time = " + time);
 	}
 
 	private static String searchHomePlateUmpire(String file) {
