@@ -32,8 +32,8 @@ public class StatisticsRiver {
 		long begin = System.currentTimeMillis();
 
 		ArrayList<Path> file_directories = new ArrayList<Path>();
-		file_directories.add(Paths.get("/Users/alexandrelods/Documents/Developpement/bbws/Games/ForTest"));
-		// file_directories.add(Paths.get("D:\\A352189\\Sources\\Games\\ForTest"));
+		// file_directories.add(Paths.get("/Users/alexandrelods/Documents/Developpement/bbws/Games/ForTest"));
+		file_directories.add(Paths.get("D:\\A352189\\Sources\\Games\\ForTest"));
 
 		logger.info("##########  ----------------------------- ##########");
 		logger.info("##########  BASEBALL GAME UTILS GENERATOR ##########");
@@ -62,11 +62,11 @@ public class StatisticsRiver {
 
 						Path current_file = iterator.next();
 						
-						if (!current_file.toString().endsWith("DS_Store")) { // pour éviter les pb sur MAC OS
+						if (!current_file.toString().endsWith("DS_Store")) { // pour eviter les pb sur MAC OS
 							
 							List<String> lines = Files.readAllLines(current_file, Charset.forName("ISO-8859-1"));
 							buffer.delete(0, buffer.length()); 
-							// ####  1  ### on déverse les lignes du fichier courant dans un StringBuffer
+							// ####  1  ### on deverse les lignes du fichier courant dans un StringBuffer
 							for (String line : lines) { // pour chaque ligne du fichier
 								buffer.append(line).append(" ");
 							}
@@ -92,13 +92,13 @@ public class StatisticsRiver {
 							logger.info("Field = " + _field);
 							
 							
-							// ####  3  ### on recherche le nom de chaque équipe
+							// ####  3  ### on recherche le nom de chaque equipe
 							String _awayTeamName = searchAwayTeam(buffer.toString());
 							String _homeTeamName = searchHomeTeam(buffer.toString());
 							
 							
 							
-							// ####  4  ### on recherche le line up de chaque équipe
+							// ####  4  ### on recherche le line up de chaque equipe
 							List<Player> _awayTeam = searchAwayTeamStartingLineUp( buffer.toString());
 							
 							logger.info("Away team = " + _awayTeamName);
@@ -236,7 +236,7 @@ public class StatisticsRiver {
 	/**
 	 * 
 	 * @param file
-	 * @param line, le lineup de l'équipe visiteuse est en position 5, le lineup de l'équipe recevante est en position 6
+	 * @param line, le lineup de l'equipe visiteuse est en position 5, le lineup de l'equipe recevante est en position 6
 	 * @return le nom des joueurs par position sur le terrain
 	 */
 	private static List<Player> searchStartingLineUp_v2(String file, int line, String team) {
@@ -244,10 +244,10 @@ public class StatisticsRiver {
 		String[] lines = file.split("<font face=verdana size=2>");
 		List<Player> lineup = new ArrayList<Player>();
 
-		// en découpant le fichier suivant la chaine de caractère "<font face=verdana size=2>"
-		// le lineup de l'équipe visiteuse est en position 5
-		// le lineup de l'équipe recevante est en position 6
-		// c'est cette valeur qui doit etre passé dans le @param line
+		// en decoupant le fichier suivant la chaine de caractère "<font face=verdana size=2>"
+		// le lineup de l'equipe visiteuse est en position 5
+		// le lineup de l'equipe recevante est en position 6
+		// c'est cette valeur qui doit etre passe dans le @param line
 		String[] _strings = lines[line].replaceFirst(team + " starters:", "").split(";");
 		
 		String jersey = null;
@@ -346,17 +346,17 @@ public class StatisticsRiver {
 	/**
 	 * 
 	 * @param file
-	 * @param line, le lineup de l'équipe visiteuse est en position 5, le lineup de l'équipe recevante est en position 6
-	 * @return le nom de l'équipe
+	 * @param line, le lineup de l'equipe visiteuse est en position 5, le lineup de l'equipe recevante est en position 6
+	 * @return le nom de l'equipe
 	 */
 	private static String searchTeam(String file, int line) {
 
 		String[] lines = file.split("<font face=verdana size=2>");
 		
-		// en découpant le fichier suivant la chaine de caractère "<font face=verdana size=2>"
-		// le lineup de l'équipe visiteuse est en position 5
-		// le lineup de l'équipe recevante est en position 6
-		// c'est cette valeur qui doit etre passé dans le @param line
+		// en decoupant le fichier suivant la chaine de caractère "<font face=verdana size=2>"
+		// le lineup de l'equipe visiteuse est en position 5
+		// le lineup de l'equipe recevante est en position 6
+		// c'est cette valeur qui doit etre passe dans le @param line
 		
 		return lines[line].split(" starters:")[0].trim();
 	}
