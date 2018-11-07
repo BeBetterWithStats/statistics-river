@@ -22,6 +22,17 @@ public class ConsoleMapper {
 	
 	final static Logger logger = LogManager.getLogger(ConsoleMapper.class.getName());
 
+	/**
+	 * Ne retourne que des actions qui ont amenés un frappeur a etre out ou safe en premire base
+	 * Les autres actions : SCORE, STOLE BASE, RUN, PICK OFF, ... ne sont pas pris en compte
+	 * 
+	 * @param p_file
+	 * @param p_players
+	 * @param p_field
+	 * @param p_oppositeTeam
+	 * @param p_umpire
+	 * @param p_date
+	 */
 	public static void generateDocuments(Path p_file, List<Player> p_players, String p_field, String p_oppositeTeam, String p_umpire, LocalDateTime p_date) {
 
 // ############## PARCOURIR LE FICHIER
@@ -174,7 +185,22 @@ public class ConsoleMapper {
 						// POUR CHAQUE ACTION
 						_json.clear();
 						
-						if ( _what != Play.UNKNOWN && _what != Play.NO_PLAY) {
+						if ( _what == Play.DOUBLE_PLAY
+								|| _what == Play.HIT_BY_PITCH
+								|| _what == Play.INTENTIONAL_WALK
+								|| _what == Play.K_LOOKING
+								|| _what == Play.K_SWINGING
+								|| _what == Play.OBR
+								|| _what == Play.OUT
+								|| _what == Play.SACRIFICE_FLY
+								|| _what == Play.SACRIFICE_HIT
+								|| _what == Play.SAFE_ON_ERROR
+								|| _what == Play.SAFE_ON_FIELDER_CHOICE
+								|| _what == Play.SLUGGING_1B
+								|| _what == Play.SLUGGING_2B
+								|| _what == Play.SLUGGING_3B
+								|| _what == Play.SLUGGING_4B
+								|| _what == Play.WALK) {
 							
 							_json.put("creation_time", LocalDateTime.now().toString());
 							_json.put("day", p_date.toString());
