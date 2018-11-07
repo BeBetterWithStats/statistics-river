@@ -58,3 +58,4 @@ La rivière générant les actions à partir des différents sites web qui hébe
 # TODO list
 - [ ] Revoir le format de la date de chaque document
 - [ ] Ajouter un index permettant de trier une liste de document ES _play_ 
+- [ ] Faire un renommage des variables dans la classes StatisticsRiver
