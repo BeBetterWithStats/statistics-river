@@ -4,9 +4,11 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -173,50 +175,54 @@ public class ConsoleMapper {
 						
 						// MATCH WITH ONE OF THE 
 						// PLAYERS PUT IN PARAMS
-						_who = null;
-						for (int i = 0; i < p_players.size(); i++) {
-							if ( _playerID.contentEquals( p_players.get(i).getID())) {
-								_who = p_players.get(i);
-								break;
+						if ( _playerID != null) {
+						
+							_who = null;
+							for (int i = 0; i < p_players.size(); i++) {
+								if ( _playerID.contentEquals( p_players.get(i).getID())) {
+									_who = p_players.get(i);
+									break;
+								}
 							}
-						}
-						
-						// CONSTRUCTION DU DOCUMENT JSON
-						// POUR CHAQUE ACTION
-						_json.clear();
-						
-						if ( _what == Play.DOUBLE_PLAY
-								|| _what == Play.HIT_BY_PITCH
-								|| _what == Play.INTENTIONAL_WALK
-								|| _what == Play.K_LOOKING
-								|| _what == Play.K_SWINGING
-								|| _what == Play.OBR
-								|| _what == Play.OUT
-								|| _what == Play.SACRIFICE_FLY
-								|| _what == Play.SACRIFICE_HIT
-								|| _what == Play.SAFE_ON_ERROR
-								|| _what == Play.SAFE_ON_FIELDER_CHOICE
-								|| _what == Play.SLUGGING_1B
-								|| _what == Play.SLUGGING_2B
-								|| _what == Play.SLUGGING_3B
-								|| _what == Play.SLUGGING_4B
-								|| _what == Play.WALK) {
 							
-							_json.put("creation_time", LocalDateTime.now().toString());
-							_json.put("day", p_date.toString());
-							_json.put("field", p_field);
-							_json.put("opposite-pitcher", "undefined".toUpperCase()); // TODO opposite pitcher
-							_json.put("opposite-team", p_oppositeTeam);
-							_json.put("player-id", _who != null ? _who.getID() : _playerID);
-							_json.put("player-team", _who != null ? _who.getTeam() : "undefined".toUpperCase());
-							_json.put("player-field-position", _who != null ? _who.getFieldPosition() : "undefined".toUpperCase());
-							_json.put("player-batting-order",  _who != null ? _who.getBattingOrder() : "undefined".toUpperCase());
-							_json.put("play-when", _when);
-							_json.put("play-what", _what);
-							_json.put("play-where", "undefined".toUpperCase());  // TODO where
-							_json.put("umpire-id", p_umpire);
+							// CONSTRUCTION DU DOCUMENT JSON
+							// POUR CHAQUE ACTION
+							_json.clear();
 							
-							logger.info("    [_JSON] = {}", _json);
+							if ( _what == Play.DOUBLE_PLAY
+									|| _what == Play.HIT_BY_PITCH
+									|| _what == Play.INTENTIONAL_WALK
+									|| _what == Play.K_LOOKING
+									|| _what == Play.K_SWINGING
+									|| _what == Play.OBR
+									|| _what == Play.OUT
+									|| _what == Play.SACRIFICE_FLY
+									|| _what == Play.SACRIFICE_HIT
+									|| _what == Play.SAFE_ON_ERROR
+									|| _what == Play.SAFE_ON_FIELDER_CHOICE
+									|| _what == Play.SLUGGING_1B
+									|| _what == Play.SLUGGING_2B
+									|| _what == Play.SLUGGING_3B
+									|| _what == Play.SLUGGING_4B
+									|| _what == Play.WALK) {
+								
+								// 2018-11-07T17:00:18.505
+								_json.put("creation-time", LocalDateTime.now().toString());
+								_json.put("day", p_date.toString());
+								_json.put("field", p_field);
+								_json.put("opposite-pitcher", "undefined".toUpperCase()); // TODO opposite pitcher
+								_json.put("opposite-team", p_oppositeTeam);
+								_json.put("player-id", _who != null ? _who.getID() : _playerID);
+								_json.put("player-team", _who != null ? _who.getTeam() : "undefined".toUpperCase());
+								_json.put("player-field-position", _who != null ? _who.getFieldPosition() : "undefined".toUpperCase());
+								_json.put("player-batting-order",  _who != null ? _who.getBattingOrder() : "undefined".toUpperCase());
+								_json.put("play-when", _when);
+								_json.put("play-what", _what);
+								_json.put("play-where", "undefined".toUpperCase());  // TODO where
+								_json.put("umpire-id", p_umpire);
+								
+								logger.info("    [_JSON] = {}", _json);
+							}
 						}
 					}
 				} 
