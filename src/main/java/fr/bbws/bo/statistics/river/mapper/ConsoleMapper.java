@@ -6,7 +6,6 @@ import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -23,7 +22,7 @@ public class ConsoleMapper {
 	
 	final static Logger logger = LogManager.getLogger(ConsoleMapper.class.getName());
 
-	public static void generateDocuments(Path p_file, List<Player> p_players, String p_field, String p_oppositeTeam, String p_umpire, Date p_date) {
+	public static void generateDocuments(Path p_file, List<Player> p_players, String p_field, String p_oppositeTeam, String p_umpire, LocalDateTime p_date) {
 
 // ############## PARCOURIR LE FICHIER
 // ############## ET LE STOCKER EN MEMOIRE

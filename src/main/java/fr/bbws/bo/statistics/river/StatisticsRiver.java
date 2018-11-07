@@ -6,11 +6,9 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -81,12 +79,11 @@ public class StatisticsRiver {
 							 */
 							DateTimeFormatter _formatter = DateTimeFormatter.ofPattern("MMM d, yyyy HH:mm", Locale.ENGLISH);
 							LocalDateTime _localDate = LocalDateTime.parse(searchDate(buffer.toString()) + " " + searchTime(buffer.toString()), _formatter);
-							Date _date = Timestamp.valueOf( _localDate);
 							String _umpire = searchHomePlateUmpire(buffer.toString());
 							String _field = searchField(buffer.toString());
 							
 							logger.info("_umpire = {}", _umpire);
-							logger.info("_date & heure = {}", _date);
+							logger.info("_date & heure = {}", _localDate);
 							logger.info("_field = {}", _field);
 							
 							
@@ -108,7 +105,7 @@ public class StatisticsRiver {
 									_field,
 									_homeTeamName,
 									_umpire,
-									_date
+									_localDate
 									);
 							/*
 							ElasticSearchMapper.generateDocuments(
@@ -134,7 +131,7 @@ public class StatisticsRiver {
 									_field,
 									_awayTeamName,
 									_umpire,
-									_date
+									_localDate
 									);
 								
 							/*ElasticSearchMapper.generateDocuments(
