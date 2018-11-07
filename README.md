@@ -52,7 +52,8 @@ La rivière générant les actions à partir des différents sites web qui hébe
 # Documentation ElasticSearchAPI
 - [Récupérer les JAR](https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/_maven_repository.html)
 - [Documentation utilisation de l'API](https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/index.html)
-- Delete all index : curl -X DELETE "localhost:9200/baseball-eu
+- Delete all index : curl -X DELETE "localhost:9200/baseball-eu"
+- Consulter un document : curl -X GET "localhost:9200/baseball-eu/play/{}"
 
 
 # TODO list

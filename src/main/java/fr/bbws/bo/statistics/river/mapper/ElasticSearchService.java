@@ -1,29 +1,31 @@
 package fr.bbws.bo.statistics.river.mapper;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.common.xcontent.XContentType;
 
 import fr.bbws.bo.statistics.river.model.GameSheetConfiguration;
 import fr.bbws.bo.statistics.river.model.Play;
 import fr.bbws.bo.statistics.river.model.Player;
 import fr.bbws.bo.statistics.utils.SearchInFileUtils;
 
-public class ConsoleMapper {
-	
-	final static Logger logger = LogManager.getLogger(ConsoleMapper.class.getName());
+public class ElasticSearchService {
 
+
+	final static Logger logger = LogManager.getLogger(ElasticSearchService.class.getName());
+	
 	/**
 	 * Ne retourne que des actions qui ont amenés un frappeur a etre out ou safe en premire base
 	 * Les autres actions : SCORE, STOLE BASE, RUN, PICK OFF, ... ne sont pas pris en compte
@@ -220,7 +222,10 @@ public class ConsoleMapper {
 								_json.put("play-where", "undefined".toUpperCase());  // TODO where
 								_json.put("umpire-id", p_umpire);
 								
-								logger.info("    [_JSON] = {}", _json);
+								IndexResponse response = ElasticSearchMapper.getInstance().open()
+																.prepareIndex("baseball-eu", "play").setSource(_json, XContentType.JSON).get();
+								
+								logger.info("    [STATUT POST] = HTTP {} - ID = {}", 200, response.getId());
 							}
 						}
 					}

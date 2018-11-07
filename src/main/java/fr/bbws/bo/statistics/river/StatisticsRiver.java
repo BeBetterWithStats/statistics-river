@@ -16,7 +16,8 @@ import java.util.Locale;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import fr.bbws.bo.statistics.river.mapper.ConsoleMapper;
+import fr.bbws.bo.statistics.river.mapper.ElasticSearchMapper;
+import fr.bbws.bo.statistics.river.mapper.ElasticSearchService;
 import fr.bbws.bo.statistics.river.model.Player;
 import fr.bbws.bo.statistics.river.model.Position;
 import fr.bbws.bo.statistics.utils.SearchInFileUtils;
@@ -99,6 +100,7 @@ public class StatisticsRiver {
 							logger.info("_away team = {}", _awayTeamName);
 							logger.info("_away team = {}", _awayTeam);
 							
+							/*
 							ConsoleMapper.generateDocuments(
 									_current_file,
 									_awayTeam,
@@ -107,15 +109,16 @@ public class StatisticsRiver {
 									_umpire,
 									_localDate
 									);
-							/*
-							ElasticSearchMapper.generateDocuments(
-															current_file,
-															_player,
-															_field,
-															_homeTeamName,
-															_umpire,
-															_date
-															);*/
+							*/
+							
+							ElasticSearchService.generateDocuments(
+									_current_file,
+									_awayTeam,
+									_field,
+									_homeTeamName,
+									_umpire,
+									_localDate
+									);
 							
 							
 							
@@ -125,6 +128,7 @@ public class StatisticsRiver {
 							logger.info("_home team = {}",_homeTeamName);
 							logger.info("_home team = {}", _homeTeam);
 							
+							/*
 							ConsoleMapper.generateDocuments(
 									_current_file,
 									_homeTeam,
@@ -133,21 +137,23 @@ public class StatisticsRiver {
 									_umpire,
 									_localDate
 									);
+							*/
 								
-							/*ElasticSearchMapper.generateDocuments(
-															current_file,
-															_player,
-															_field,
-															_awayTeamName,
-															_umpire,
-															_date
-															);*/
+							ElasticSearchService.generateDocuments(
+											_current_file,
+											_homeTeam,
+											_field,
+											_awayTeamName,
+											_umpire,
+											_localDate
+											);
 							
 						}					
 						
 					} // ############## FIN DU FICHIER COURANT
 				} finally {
 					stream.close();
+					ElasticSearchMapper.getInstance().close();
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
