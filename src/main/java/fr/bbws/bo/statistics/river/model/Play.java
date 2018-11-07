@@ -40,8 +40,8 @@ public enum Play {
 
 	private int key = 0;
 	
-	Play(int key) {
-		this.key = key;
+	Play(int p_key) {
+		this.key = p_key;
 	}
 	
 	public int intValue() {

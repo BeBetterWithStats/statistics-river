@@ -1,5 +1,6 @@
 package fr.bbws.bo.statistics.river.model;
 
+@Deprecated
 public enum KEY_WORDS {
 
 	DESIGNATED_HITTER(0),

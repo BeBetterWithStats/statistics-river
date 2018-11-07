@@ -59,3 +59,12 @@ La rivière générant les actions à partir des différents sites web qui hébe
 - [ ] Revoir le format de la date de chaque document
 - [ ] Ajouter un index permettant de trier une liste de document ES _play_ 
 - [ ] Faire un renommage des variables dans la classes StatisticsRiver
+
+
+# Normes de code
+- les paramètres d'une fonction ou méthode doivent etre préfixés par 'p_'
+- les variables associées ux listes ou tableaux doivent etre écrites au pluriel
+- dans une boucle, les incréments des listes ou tableaux doivent porté le meme nom que la liste mais au singulier
+- dans une boucle, les variables qui s'incrémentent doivent etre préfixées du symbole '_' et autant de fois qu'il y a de boucles imbriquées. Sont dispensés de cette règle, les incréments d'un caractère (i, j, ...) ou les mots clés `index` ou `key` ou `iterator`
+- les noms des méthodes doivent etre en anglais
+- les uri doivent etre en anglais

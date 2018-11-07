@@ -15,22 +15,17 @@ public class Player {
 	
 	private String team;
 	
-	private KEY_WORDS fieldPosition;
+	private Position fieldPosition;
 	
 	private int battingOrder;
 	
-	private int[] hit;
 	
-	private int[] ab;
-	
-	public Player( String id, String team, String jersey, KEY_WORDS position, int order) {
-		this.id = id;
-		this.hit = new int[ KEY_WORDS.MAX.intValue()];			
-		this.ab = new int[ KEY_WORDS.MAX.intValue()];
-		this.jersey = jersey;
-		this.team = team;
-		this.fieldPosition = position;
-		this.battingOrder = order;
+	public Player( String p_id, String p_team, String p_jersey, Position p_position, int p_order) {
+		this.id = p_id;
+		this.jersey = p_jersey;
+		this.team = p_team;
+		this.fieldPosition = p_position;
+		this.battingOrder = p_order;
 	}
 
 	public String getID() {
@@ -45,7 +40,7 @@ public class Player {
 		return team;
 	}
 
-	public KEY_WORDS getFieldPosition() {
+	public Position getFieldPosition() {
 		return fieldPosition;
 	}
 
@@ -53,82 +48,9 @@ public class Player {
 		return battingOrder;
 	}
 
-	public String getAVG() {
-		int nb_ab = 0;
-		int nb_hit = 0;
-		String[] zero = { "0.000", "0.000", ".000", "00", "0", ""};
-		
-		/*
-		nb_ab = this.ab[KEY_WORDS.PITCHER.intValue()] 
-				+ this.ab[KEY_WORDS.CATCHER.intValue()]
-					+ this.ab[KEY_WORDS.FIRST_BASE.intValue()]
-							+ this.ab[KEY_WORDS.SECOND_BASE.intValue()]
-									+ this.ab[KEY_WORDS.THIRD_BASE.intValue()]
-											+ this.ab[KEY_WORDS.SHORTSTOP.intValue()]
-													+ this.ab[KEY_WORDS.LEFT_FIELD.intValue()]
-															+ this.ab[KEY_WORDS.CENTER_FIELD.intValue()]
-																	+ this.ab[KEY_WORDS.RIGHT_FIELD.intValue()]
-																			+ this.ab[KEY_WORDS.OBR.intValue()]
-																					+ this.ab[KEY_WORDS.K_SWINGING.intValue()]
-																							+ this.ab[KEY_WORDS.K_LOOKING.intValue()]
-																									- this.ab[KEY_WORDS.SACRIFICE.intValue()];
-		nb_hit = this.hit[KEY_WORDS.PITCHER.intValue()] 
-				 + this.hit[KEY_WORDS.CATCHER.intValue()]
-						+ this.hit[KEY_WORDS.FIRST_BASE.intValue()]
-								+ this.hit[KEY_WORDS.SECOND_BASE.intValue()]
-										+ this.hit[KEY_WORDS.THIRD_BASE.intValue()]
-												+ this.hit[KEY_WORDS.SHORTSTOP.intValue()]
-														+ this.hit[KEY_WORDS.LEFT_FIELD.intValue()]
-																+ this.hit[KEY_WORDS.CENTER_FIELD.intValue()]
-																		+ this.hit[KEY_WORDS.RIGHT_FIELD.intValue()];
-		
-		String avg = Double.toString( (double) Math.round( (double) nb_hit / nb_ab * 1000) / 1000);
-		return avg + zero[ avg.length()];
-		*/
-		return "TODO"; // TODO revoir l'algorithme de calcul de l'avg
-	}
-
-	public int[] getHit() {
-		return hit;
-	}
-
-	public int[] getAb() {
-		return ab;
-	}
-	
-
 	public String getFieldPreference() {
 		
-		int left = this.ab[KEY_WORDS.THIRD_BASE.intValue()]
-						+ this.ab[KEY_WORDS.SHORTSTOP.intValue()]
-							+ this.ab[KEY_WORDS.LEFT_FIELD.intValue()];
-		
-		int center = this.ab[KEY_WORDS.PITCHER.intValue()] 
-						+ this.ab[KEY_WORDS.CENTER_FIELD.intValue()];
-		
-		int right = this.ab[KEY_WORDS.FIRST_BASE.intValue()]
-						+ this.ab[KEY_WORDS.SECOND_BASE.intValue()]
-							+ this.ab[KEY_WORDS.RIGHT_FIELD.intValue()];
-
-		
-		// RG si aucune frappe sur le troisieme base
-		// shift à droite possible
-		if ( 0 == this.ab[KEY_WORDS.THIRD_BASE.intValue()]) {
-			left = left - this.ab[KEY_WORDS.LEFT_FIELD.intValue()];
-			center = center + this.ab[KEY_WORDS.LEFT_FIELD.intValue()];
-			return Integer.toString( left) + " | " +Integer.toString( center) + " | " + Integer.toString( right);
-		}
-		
-		
-		// RG si aucune frappe sur le premiere base
-		// shift à gauche possible
-		if ( 0 == this.ab[KEY_WORDS.FIRST_BASE.intValue()]) {
-			right = right - this.ab[KEY_WORDS.RIGHT_FIELD.intValue()];
-			center = center + this.ab[KEY_WORDS.RIGHT_FIELD.intValue()];
-			return Integer.toString( left) + " | " +Integer.toString( center) + " | " + Integer.toString( right);
-		}
-		
-		return Integer.toString( left) + " | " +Integer.toString( center) + " | " + Integer.toString( right);
+		return "undefined".toUpperCase();
 
 	}
 	
@@ -148,36 +70,28 @@ public class Player {
 		return battingSide;
 	}
 
-	public void setBattingSide(KEY_WORDS battingSide) {
-		this.battingSide = battingSide;
+	public void setBattingSide(KEY_WORDS p_battingSide) {
+		this.battingSide = p_battingSide;
 	}
 	
-	public void setThrowingSide(KEY_WORDS throwingSide) {
-		this.throwingSide = throwingSide;
+	public void setThrowingSide(KEY_WORDS p_throwingSide) {
+		this.throwingSide = p_throwingSide;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstName(String p_firstName) {
+		this.firstName = p_firstName;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String p_name) {
+		this.name = p_name;
 	}
 	
-	public void setFieldPosition(KEY_WORDS position) {
-		this.fieldPosition = position;
+	public void setFieldPosition(Position p_position) {
+		this.fieldPosition = p_position;
 	}
 
-	public void setBattingOrder(int order) {
-		this.battingOrder = order;
-	}
-
-	public void increaseAb( int position) {
-		this.ab[position] = this.ab[position] + 1;
-	}
-	
-	public void increaseHit( int position) {
-		this.hit[position] = this.hit[position] + 1;
+	public void setBattingOrder(int p_order) {
+		this.battingOrder = p_order;
 	}
 		
 	@Override
@@ -220,7 +134,7 @@ public class Player {
 		}
 		*/
 		
-		String value = "Ord. " + this.battingOrder + " " + this.id + " #" + this.jersey + " " + this.fieldPosition;
+		String value = "Ord. " + this.battingOrder + " " + this.id + " #" + this.jersey + " " + this.fieldPosition + " " + this.team;
 		return value;
 		
 	}

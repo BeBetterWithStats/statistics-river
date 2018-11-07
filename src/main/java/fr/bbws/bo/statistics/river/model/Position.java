@@ -18,8 +18,8 @@ public enum Position {
 
 	private int key = 0;
 	
-	Position(int key) {
-		this.key = key;
+	Position(int p_key) {
+		this.key = p_key;
 	}
 	
 	public int intValue() {
