@@ -101,7 +101,7 @@ public class StatisticsRiver {
 							logger.info("_away team = {}", _awayTeam);
 							
 							/*
-							ConsoleMapper.generateDocuments(
+							ConsoleService.generateDocuments(
 									_current_file,
 									_awayTeam,
 									_field,
@@ -129,7 +129,7 @@ public class StatisticsRiver {
 							logger.info("_home team = {}", _homeTeam);
 							
 							/*
-							ConsoleMapper.generateDocuments(
+							ConsoleService.generateDocuments(
 									_current_file,
 									_homeTeam,
 									_field,
