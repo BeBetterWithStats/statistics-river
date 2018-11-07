@@ -18,7 +18,7 @@ import java.util.Locale;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import fr.bbws.bo.statistics.river.mapper.ElasticSearchMapper;
+import fr.bbws.bo.statistics.river.mapper.ConsoleMapper;
 import fr.bbws.bo.statistics.river.model.KEY_WORDS;
 import fr.bbws.bo.statistics.river.model.Player;
 import fr.bbws.bo.statistics.utils.SearchInFileUtils;
@@ -72,24 +72,22 @@ public class StatisticsRiver {
 							}
 							
 							// ####  2  ### on recherche les attributs 'field', 'date' et 'home plat umpire'
-							logger.info("\n");
-							
-							
-/*
- * TODO revoir le format de la date
- * 
- * date_hour_minute_second or strict_date_hour_minute_second 
- * A formatter that combines a full date, two digit hour of day, two digit minute of hour, and two digit second of minute : yyyy-MM-dd'T'HH:mm:ss.
- */
+														
+							/*
+							 * TODO revoir le format de la date
+							 * 
+							 * date_hour_minute_second or strict_date_hour_minute_second 
+							 * A formatter that combines a full date, two digit hour of day, two digit minute of hour, and two digit second of minute : yyyy-MM-dd'T'HH:mm:ss.
+							 */
 							DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy HH:mm", Locale.ENGLISH);
 							LocalDateTime localDate = LocalDateTime.parse(searchDate(buffer.toString()) + " " + searchTime(buffer.toString()), formatter);
 							Date _date = Timestamp.valueOf( localDate);
 							String _umpire = searchHomePlateUmpire(buffer.toString());
 							String _field = searchField(buffer.toString());
 							
-							logger.info("Home plate umpire = " + _umpire);
-							logger.info("Date & Heure = " + _date);
-							logger.info("Field = " + _field);
+							logger.info("Home plate umpire = {}", _umpire);
+							logger.info("Date & Heure = {}", _date);
+							logger.info("Field = {}", _field);
 							
 							
 							// ####  3  ### on recherche le nom de chaque equipe
@@ -101,19 +99,19 @@ public class StatisticsRiver {
 							// ####  4  ### on recherche le line up de chaque equipe
 							List<Player> _awayTeam = searchAwayTeamStartingLineUp( buffer.toString());
 							
-							logger.info("Away team = " + _awayTeamName);
-							logger.info("Away team = " + _awayTeam);
+							logger.info("Away team = {}", _awayTeamName);
+							logger.info("Away team = {}", _awayTeam);
 							
-							for (Player _player : _awayTeam) {
-								/*ConsoleMapper.generateDocuments(
+							//for (Player _player : _awayTeam) {
+								ConsoleMapper.generateDocuments(
 										current_file,
-										_player,
+										_awayTeam,// _player,
 										_field,
 										_homeTeamName,
 										_umpire,
 										_date
-										);*/
-								
+										);
+								/*
 								ElasticSearchMapper.generateDocuments(
 																current_file,
 																_player,
@@ -121,37 +119,35 @@ public class StatisticsRiver {
 																_homeTeamName,
 																_umpire,
 																_date
-																);
-							}
+																);*/
+							//}
 							
 							
 							
 							List<Player> _homeTeam = searchHomeTeamStartingLineUp( buffer.toString());
 							
-							logger.info("Home team = " + _homeTeamName);
-							logger.info("Home team = " + _homeTeam);
+							logger.info("Home team = {}",_homeTeamName);
+							logger.info("Home team = {}", _homeTeam);
 							
-							for (Player _player : _homeTeam) {
-								/*ConsoleMapper.generateDocuments(
+							//for (Player _player : _homeTeam) {
+								ConsoleMapper.generateDocuments(
 										current_file,
-										_player,
+										_homeTeam,//_player,
 										_field,
 										_awayTeamName,
 										_umpire,
 										_date
-										);*/
+										);
 								
-								ElasticSearchMapper.generateDocuments(
+								/*ElasticSearchMapper.generateDocuments(
 																current_file,
 																_player,
 																_field,
 																_awayTeamName,
 																_umpire,
 																_date
-																);
-							}
-							
-							logger.info("\n");
+																);*/
+							//}
 						}					
 						
 					} // ############## FIN DU FICHIER COURANT
