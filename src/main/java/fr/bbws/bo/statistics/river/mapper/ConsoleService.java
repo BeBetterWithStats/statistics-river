@@ -4,11 +4,9 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -18,6 +16,7 @@ import org.apache.logging.log4j.Logger;
 import fr.bbws.bo.statistics.river.model.GameSheetConfiguration;
 import fr.bbws.bo.statistics.river.model.Play;
 import fr.bbws.bo.statistics.river.model.Player;
+import fr.bbws.bo.statistics.river.model.Position;
 import fr.bbws.bo.statistics.utils.SearchInFileUtils;
 
 public class ConsoleService {
@@ -99,13 +98,16 @@ public class ConsoleService {
 		
 		
 		final Map<String, Play> ALL_PLAYS = GameSheetConfiguration.getInstance().loadAllPlays();
+		final Map<String, Position> ALL_POSITIONS = GameSheetConfiguration.getInstance().loadAllPositions();
 		Map<String, Object> _json = new TreeMap<String, Object>();
 		List<String> _plays = new ArrayList<String>();
 		List<String> __plays = new ArrayList<String>();
 		String _when = null;
 		Player _who = null;
 		Play _what = null;
+		Position _where = null;
 		String _playerID = null;
+		String _keyword = null;
 		
 		
 // ############## DECOUPER CHAQUE INNING EN ACTION
@@ -139,39 +141,49 @@ public class ConsoleService {
 					
 					for (String __play : __plays) {
 					
-						logger.debug("    [__PLAY] = {}", __play.replaceAll(", SAC", "")
-																	.replaceAll(", SF", "")
-																	.replaceAll(", 4 RBI", "")
-																	.replaceAll(", 3 RBI", "")
-																	.replaceAll(", 2 RBI", "")
-																	.replaceAll(", RBI", ""));
+						logger.debug("    [__PLAY] = {}", __play);
 						
-						_playerID = SearchInFileUtils.searchUppercaseWordFromBeginning(__play);
+						_playerID = SearchInFileUtils.searchUppercaseWordFromBeginning(__play.replaceAll("::: ", ""));
 						logger.debug("        [_PLAYERID] = {}", _playerID);
-						logger.debug("        [__KEY_WORD] = {}", __play.replaceAll(", SAC", "")
-																		.replaceAll(", SF", "")
-																		.replaceAll(", 4 RBI", "")
-																		.replaceAll(", 3 RBI", "")
-																		.replaceAll(", 2 RBI", "")
-																		.replaceAll(", RBI", "")
-																		.substring( _playerID != null ? _playerID.length() + 1 : 0));
+						
+						_keyword = __play.replaceAll(", SAC", "")
+											.replaceAll(", SF", "")
+											.replaceAll(", 4 RBI", "")
+											.replaceAll(", 3 RBI", "")
+											.replaceAll(", 2 RBI", "")
+											.replaceAll(", RBI", "")
+											.replaceAll("::: ", "")
+											.replaceAll(":::", "")
+											.substring( _playerID != null ? _playerID.length() + 1 : 0);
+						logger.debug("        [_KEY_WORD] = {}", _keyword);
 
 						// MATCH WITH ONE OF THE 
 						// fr.bbws.bo.statistics.river.model.GameSheetConfiguration.getInstance().loadAllPlays() KEYWORDS
-						_what = Play.UNKNOWN;
-						for (String k : ALL_PLAYS.keySet()) {
-							if (__play.replaceAll(", SAC", "")
-										.replaceAll(", SF", "")
-										.replaceAll(", 4 RBI", "")
-										.replaceAll(", 3 RBI", "")
-										.replaceAll(", 2 RBI", "")
-										.replaceAll(", RBI", "")
-										.substring( _playerID != null ? _playerID.length() + 1 : 0)
-											.startsWith(k)) { 
-								_what = ALL_PLAYS.get(k);
+						_what = Play.UNDEFINED;
+						for (String key : ALL_PLAYS.keySet()) {
+							if (_keyword.startsWith(key)) { 
+								_what = ALL_PLAYS.get(key);
 							}
 						}
 						
+						if ( Play.UNDEFINED == _what) {
+							logger.debug("        [_WHAT] \'{}\' in file [{}] not found GameSheetConfiguration.loadAllPlays", _keyword, p_file); // TODO remettre en error
+						}
+						
+						
+						
+						// EXACT MATCH WITH ONE OF THE 
+						// fr.bbws.bo.statistics.river.model.GameSheetConfiguration.getInstance().loadAllPositions() KEYWORDS
+						_where = Position.UNDEFINED;
+						for (String key : ALL_POSITIONS.keySet()) {
+							if (_keyword.contentEquals(key)) { 
+								_where = ALL_POSITIONS.get(key);
+							}
+						}
+						
+						if ( Position.UNDEFINED == _where) {
+							logger.debug("        [_WHERE] \'{}\' in file [{}] not found GameSheetConfiguration.loadAllPositions", _keyword, p_file); // TODO remettre en error
+						}
 						
 						// MATCH WITH ONE OF THE 
 						// PLAYERS PUT IN PARAMS
@@ -217,7 +229,7 @@ public class ConsoleService {
 								_json.put("player-batting-order",  _who != null ? _who.getBattingOrder() : "undefined".toUpperCase());
 								_json.put("play-when", _when);
 								_json.put("play-what", _what);
-								_json.put("play-where", "undefined".toUpperCase());  // TODO where
+								_json.put("play-where", _where);  // TODO where
 								_json.put("umpire-id", p_umpire);
 								
 								logger.info("    [_JSON] = {}", _json);

@@ -160,7 +160,7 @@ public class ElasticSearchService {
 
 						// MATCH WITH ONE OF THE 
 						// fr.bbws.bo.statistics.river.model.GameSheetConfiguration.getInstance().loadAllPlays() KEYWORDS
-						_what = Play.UNKNOWN;
+						_what = Play.UNDEFINED;
 						for (String k : ALL_PLAYS.keySet()) {
 							if (__play.replaceAll(", SAC", "")
 										.replaceAll(", SF", "")

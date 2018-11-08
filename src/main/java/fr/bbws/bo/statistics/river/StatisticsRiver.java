@@ -16,8 +16,8 @@ import java.util.Locale;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import fr.bbws.bo.statistics.river.mapper.ConsoleService;
 import fr.bbws.bo.statistics.river.mapper.ElasticSearchMapper;
-import fr.bbws.bo.statistics.river.mapper.ElasticSearchService;
 import fr.bbws.bo.statistics.river.model.Player;
 import fr.bbws.bo.statistics.river.model.Position;
 import fr.bbws.bo.statistics.utils.SearchInFileUtils;
@@ -100,7 +100,7 @@ public class StatisticsRiver {
 							logger.info("_away team = {}", _awayTeamName);
 							logger.info("_away team = {}", _awayTeam);
 							
-							/*
+							
 							ConsoleService.generateDocuments(
 									_current_file,
 									_awayTeam,
@@ -109,8 +109,8 @@ public class StatisticsRiver {
 									_umpire,
 									_localDate
 									);
-							*/
 							
+							/*
 							ElasticSearchService.generateDocuments(
 									_current_file,
 									_awayTeam,
@@ -119,7 +119,7 @@ public class StatisticsRiver {
 									_umpire,
 									_localDate
 									);
-							
+							*/
 							
 							
 							
@@ -128,7 +128,7 @@ public class StatisticsRiver {
 							logger.info("_home team = {}",_homeTeamName);
 							logger.info("_home team = {}", _homeTeam);
 							
-							/*
+							
 							ConsoleService.generateDocuments(
 									_current_file,
 									_homeTeam,
@@ -137,8 +137,8 @@ public class StatisticsRiver {
 									_umpire,
 									_localDate
 									);
-							*/
-								
+							
+							/*
 							ElasticSearchService.generateDocuments(
 											_current_file,
 											_homeTeam,
@@ -147,7 +147,7 @@ public class StatisticsRiver {
 											_umpire,
 											_localDate
 											);
-							
+							*/
 						}					
 						
 					} // ############## FIN DU FICHIER COURANT

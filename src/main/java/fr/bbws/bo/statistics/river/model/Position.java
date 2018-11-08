@@ -12,9 +12,10 @@ public enum Position {
 	LEFT_FIELD (7),
 	CENTER_FIELD (8),
 	RIGHT_FIELD (9),
-	UNKNOW_LOCATION_OF_BATTED_BALL (10),
-	
-	UNKNOWN (-99);
+	UP_THE_MIDDLE (10),
+	UNLOCATED_BATTED_BALL (20),
+	EMPTY (99),
+	UNDEFINED (-99);
 
 	private int key = 0;
 	
