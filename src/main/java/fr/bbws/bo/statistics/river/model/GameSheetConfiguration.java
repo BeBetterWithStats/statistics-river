@@ -580,6 +580,7 @@ public class GameSheetConfiguration {
     	positions.put("grounded out to 3b (3-2 BBKBK).", Position.THIRD_BASE);
     	positions.put("grounded out to 3b (3-2 BKSBB).", Position.THIRD_BASE);
     	positions.put("grounded out to 3b (3-2 KBKBB).", Position.THIRD_BASE);
+    	positions.put("grounded out to 3b unassisted.", Position.THIRD_BASE);
     	positions.put("grounded out to 3b, bunt.", Position.THIRD_BASE);
     	positions.put("grounded out to 3b.", Position.THIRD_BASE);
     	positions.put("grounded out to c", Position.CATCHER);
@@ -653,6 +654,7 @@ public class GameSheetConfiguration {
     	positions.put("grounded out to ss.", Position.SHORTSTOP);
     	
     	
+    	
 //    	_map.put("hit by pitch", Play.HIT_BY_PITCH);
 //    	_map.put("hit by pitch", Play.HIT_BY_PITCH);
 //    	_map.put("hit by pitch (0-0)", Play.HIT_BY_PITCH);
@@ -682,6 +684,7 @@ public class GameSheetConfiguration {
     	positions.put("hit into double play p to 1b to 3b", Position.PITCHER);
     	positions.put("hit into double play ss to 1b to ss (2-1 FBB)", Position.SHORTSTOP);
     	positions.put("hit into double play ss to 2b to 1b", Position.SHORTSTOP);
+    	positions.put("hit into double play ss to 1b", Position.SHORTSTOP);
     	
     	positions.put("homered ", Position.UNLOCATED_BATTED_BALL);
     	positions.put("homered down the lf line.", Position.LEFT_FIELD);
@@ -744,6 +747,7 @@ public class GameSheetConfiguration {
     	positions.put("lined into double play ss to 1b", Position.SHORTSTOP);
     	positions.put("lined into double play ss to 2b", Position.SHORTSTOP);
     	positions.put("lined into double play ss to 2b (1-1 BK)", Position.SHORTSTOP);
+    	positions.put("lined into double play ss unassisted", Position.SHORTSTOP);
     	positions.put("lined into double play ss unassisted (3-2 BKFBBF)", Position.SHORTSTOP);
     	
     	positions.put("lined out to ", Position.UNLOCATED_BATTED_BALL);
@@ -1135,17 +1139,39 @@ public class GameSheetConfiguration {
     	positions.put("reached on a throwing error by ss.", Position.SHORTSTOP);
     	
     	positions.put("reached on an error by ", Position.UNLOCATED_BATTED_BALL);
+    	positions.put("reached on an error by 1b", Position.FIRST_BASE);
     	positions.put("reached on an error by 1b.", Position.FIRST_BASE);
+    	positions.put("reached on an error by 1b, advanced to second on the error", Position.FIRST_BASE);
     	positions.put("reached on an error by 1b (0-0).", Position.FIRST_BASE);
     	positions.put("reached on an error by 1b, assist by c (0-2 KS)", Position.FIRST_BASE);
+    	positions.put("reached on an error by 2b", Position.SECOND_BASE);
     	positions.put("reached on an error by 2b.", Position.SECOND_BASE);
+    	positions.put("reached on an error by 2b, advanced to second on the error", Position.SECOND_BASE);
+    	positions.put("reached on an error by 2b, assist by ss", Position.SHORTSTOP);
+    	positions.put("reached on an error by 2b, assist by 3b", Position.THIRD_BASE);
     	positions.put("reached on an error by 2b (0-0)", Position.SECOND_BASE);
     	positions.put("reached on an error by 2b (3-1 BFBB)", Position.SECOND_BASE);
+    	positions.put("reached on an error by 3b", Position.THIRD_BASE);
     	positions.put("reached on an error by 3b.", Position.THIRD_BASE);
+    	positions.put("reached on an error by 3b, advanced to second on the error", Position.THIRD_BASE);
     	positions.put("reached on an error by 3b (2-0 BB)", Position.THIRD_BASE);
+    	positions.put("reached on an error by cf", Position.CENTER_FIELD);
+    	positions.put("reached on an error by cf.", Position.CENTER_FIELD);
+    	positions.put("reached on an error by cf, advanced to second on the error", Position.CENTER_FIELD);
+    	positions.put("reached on an error by lf", Position.LEFT_FIELD);
+    	positions.put("reached on an error by lf.", Position.LEFT_FIELD);
+    	positions.put("reached on an error by lf, advanced to second on the error", Position.LEFT_FIELD);
     	positions.put("reached on an error by lf (3-2 BSBBF)", Position.LEFT_FIELD);
+    	positions.put("reached on an error by rf", Position.RIGHT_FIELD);
+    	positions.put("reached on an error by rf.", Position.RIGHT_FIELD);
+    	positions.put("reached on an error by rf, advanced to second on the error", Position.RIGHT_FIELD);
+    	positions.put("reached on an error by ss", Position.SHORTSTOP);
     	positions.put("reached on an error by ss.", Position.SHORTSTOP);
+    	positions.put("reached on an error by ss, advanced to second on the error", Position.SHORTSTOP);
+    	positions.put("reached on an error by ss, assist by 1b", Position.FIRST_BASE);
+    	positions.put("reached on an error by ss, assist by 2b", Position.SECOND_BASE);
     	positions.put("reached on an error by ss (3-1 BBBK)", Position.SHORTSTOP);
+    	
     	
     	
 //    	_map.put("scored", Play.NO_PLAY); // SCORE);

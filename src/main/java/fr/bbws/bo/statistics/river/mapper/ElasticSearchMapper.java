@@ -16,17 +16,17 @@ public class ElasticSearchMapper {
 	
 	static TransportClient client = null;
 	
-	/** Constructeur privé */  
+	/** Constructeur prive */  
     private ElasticSearchMapper(){
     }
      
     /** Holder */
     private static class ElasticSearchMapperHolder {       
-        /** Instance unique non préinitialisée */
+        /** Instance unique non preinitialisee */
         private final static ElasticSearchMapper instance = new ElasticSearchMapper();
     }
  
-    /** Point d'accès pour l'instance unique du singleton */
+    /** Point d'acces pour l'instance unique du singleton */
     public static ElasticSearchMapper getInstance() {
         return ElasticSearchMapperHolder.instance;
     }
@@ -36,20 +36,20 @@ public class ElasticSearchMapper {
     	
     	if (client == null) {
     		
-    		logger.info("ElasticSearchMapper : {}", "Tentative de création d'une nouvelle connexion à ES");
+    		logger.info("## ElasticSearchMapper : {}", "Try to connect ElasticSearch");
     		try {
 				Settings settings = Settings.builder().put("cluster.name", "elasticsearch").build();
 				client = new PreBuiltTransportClient(settings).addTransportAddress(new TransportAddress(InetAddress.getByName("localhost"), 9300));
-				logger.info("## ElasticSearchMapper : Connexion -- {}", "OK");
+				logger.info("## ElasticSearchMapper : Status -- {}", "OK");
 				return client;
 		    } catch (UnknownHostException e) {
-				logger.fatal("## ElasticSearchMapper : Connexion -- ", "KO");
-				logger.fatal("    -> ID du serveur ElasticSearch : {}", "localhost:9300");
+				logger.fatal("## ElasticSearchMapper : Status -- {}", "KO");
+				logger.fatal("    -> ID : {}", "localhost:9300");
 				e.printStackTrace();
 				return null;
 			}
     	} else {
-    		logger.debug("## ElasticSearchMapper : {}", "Une connexion précédente à ES a été réutilisée");
+    		logger.debug("## ElasticSearchMapper : {}", "Reuse of a previous connection");
     		return client;
     	}
     	
@@ -57,12 +57,15 @@ public class ElasticSearchMapper {
     
     public boolean close() {
     	
+    	logger.info("## ElasticSearchMapper : {}", "Try to close ElasticSearch");
+		
     	if (client != null) {
 			client.close();
-			logger.info("## ElasticSearchMapper : {}", "Fermeture de la connexion à ES -- OK");
+			logger.info("## ElasticSearchMapper : Status -- {}", "OK");
     		return true;
 		} else {
-			logger.fatal("## ElasticSearchMapper : {}", "Tentative de fermeture d'une connexion inexistante !");
+			logger.fatal("## ElasticSearchMapper : Status -- {}", "KO");
+			logger.fatal("    -> REASON : {}", "Try to close a non opened connection");
     		return false;
 		}
     }

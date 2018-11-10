@@ -16,8 +16,8 @@ import java.util.Locale;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import fr.bbws.bo.statistics.river.mapper.ConsoleService;
 import fr.bbws.bo.statistics.river.mapper.ElasticSearchMapper;
+import fr.bbws.bo.statistics.river.mapper.ElasticSearchService;
 import fr.bbws.bo.statistics.river.model.Player;
 import fr.bbws.bo.statistics.river.model.Position;
 import fr.bbws.bo.statistics.utils.SearchInFileUtils;
@@ -121,7 +121,7 @@ public class StatisticsRiver {
 							logger.trace("[_away team name] = {}", _awayTeamName);
 							logger.debug("[_away team] = {}", _awayTeam);
 							
-							
+							/*
 							ConsoleService.generateDocuments(
 									_current_file,
 									_awayTeam,
@@ -130,8 +130,8 @@ public class StatisticsRiver {
 									_umpire,
 									_localDate
 									);
+							*/
 							
-							/*
 							ElasticSearchService.generateDocuments(
 									_current_file,
 									_awayTeam,
@@ -140,7 +140,7 @@ public class StatisticsRiver {
 									_umpire,
 									_localDate
 									);
-							*/
+							
 							
 							
 							
@@ -149,7 +149,7 @@ public class StatisticsRiver {
 							logger.trace("[_home team name] = {}",_homeTeamName);
 							logger.debug("[_home team] = {}", _homeTeam);
 							
-							
+							/*
 							ConsoleService.generateDocuments(
 									_current_file,
 									_homeTeam,
@@ -158,8 +158,8 @@ public class StatisticsRiver {
 									_umpire,
 									_localDate
 									);
+							*/
 							
-							/*
 							ElasticSearchService.generateDocuments(
 											_current_file,
 											_homeTeam,
@@ -168,7 +168,7 @@ public class StatisticsRiver {
 											_umpire,
 											_localDate
 											);
-							*/
+							
 						}					
 						
 					} // ############## FIN DU FICHIER COURANT
