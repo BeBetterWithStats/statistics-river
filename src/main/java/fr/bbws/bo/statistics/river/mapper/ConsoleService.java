@@ -24,7 +24,7 @@ public class ConsoleService {
 	final static Logger logger = LogManager.getLogger(ConsoleService.class.getName());
 
 	/**
-	 * Ne retourne que des actions qui ont amenés un frappeur a etre out ou safe en premire base
+	 * Ne retourne que des actions qui ont amenï¿½s un frappeur a etre out ou safe en premire base
 	 * Les autres actions : SCORE, STOLE BASE, RUN, PICK OFF, ... ne sont pas pris en compte
 	 * 
 	 * @param p_file
@@ -119,7 +119,7 @@ public class ConsoleService {
 			logger.debug("[_WHEN] = {}", _when);
 			
 			if (null != _when) {
-				// si l'inning correspond à l'equipe passee en parametre
+				// si l'inning correspond ï¿½ l'equipe passee en parametre
 				// on decoupe alors l'inning en action
 				
 				_plays.clear();
@@ -167,7 +167,7 @@ public class ConsoleService {
 						}
 						
 						if ( Play.UNDEFINED == _what) {
-							logger.debug("        [_WHAT] \'{}\' in file [{}] not found GameSheetConfiguration.loadAllPlays", _keyword, p_file); // TODO remettre en error
+							logger.error("        [_WHAT] \'{}\' in file [{}] not found GameSheetConfiguration.loadAllPlays", _keyword, p_file); // TODO remettre en error
 						}
 						
 						
@@ -182,7 +182,7 @@ public class ConsoleService {
 						}
 						
 						if ( Position.UNDEFINED == _where) {
-							logger.debug("        [_WHERE] \'{}\' in file [{}] not found GameSheetConfiguration.loadAllPositions", _keyword, p_file); // TODO remettre en error
+							logger.error("        [_WHERE] \'{}\' in file [{}] not found GameSheetConfiguration.loadAllPositions", _keyword, p_file); // TODO remettre en error
 						}
 						
 						// MATCH WITH ONE OF THE 
@@ -218,18 +218,18 @@ public class ConsoleService {
 									|| _what == Play.SLUGGING_4B
 									|| _what == Play.WALK) {
 								
-								_json.put("creation-time", LocalDateTime.now().toString());
+								_json.put("created", LocalDateTime.now().toString());
 								_json.put("day", p_date.toString());
 								_json.put("field", p_field);
-								_json.put("opposite-pitcher", "undefined".toUpperCase()); // TODO opposite pitcher
-								_json.put("opposite-team", p_oppositeTeam);
-								_json.put("player-id", _who != null ? _who.getID() : _playerID);
-								_json.put("player-team", _who != null ? _who.getTeam() : "undefined".toUpperCase());
-								_json.put("player-field-position", _who != null ? _who.getFieldPosition() : "undefined".toUpperCase());
-								_json.put("player-batting-order",  _who != null ? _who.getBattingOrder() : "undefined".toUpperCase());
-								_json.put("play-when", _when);
-								_json.put("play-what", _what);
-								_json.put("play-where", _where);  // TODO where
+								_json.put("opposite_pitcher", "undefined".toUpperCase()); // TODO opposite pitcher
+								_json.put("opposite_team", p_oppositeTeam);
+								_json.put("player_id", _who != null ? _who.getID() : _playerID);
+								_json.put("player_team", _who != null ? _who.getTeam() : "undefined".toUpperCase());
+								_json.put("player_field_position", _who != null ? _who.getFieldPosition() : "undefined".toUpperCase());
+								_json.put("player_batting_order",  _who != null ? _who.getBattingOrder() : "undefined".toUpperCase());
+								_json.put("when", _when);
+								_json.put("what", _what);
+								_json.put("where", _where);  // TODO where
 								_json.put("umpire-id", p_umpire);
 								
 								logger.info("    [_JSON] = {}", _json);

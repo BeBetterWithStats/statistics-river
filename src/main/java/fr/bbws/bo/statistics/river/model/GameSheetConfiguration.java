@@ -5,22 +5,22 @@ import java.util.Map;
 
 /**
  * Singleton thread safe
- * (se referer à l'article de JM Doudoux https://www.jmdoudoux.fr/java/dej/chap-design-patterns.htm)
- * permettant de charger la configuration lié à l'outil de scorage
+ * (se referer a l'article de JM Doudoux https://www.jmdoudoux.fr/java/dej/chap-design-patterns.htm)
+ * permettant de charger la configuration lie a l'outil de scorage
  */
 public class GameSheetConfiguration {
    
-    /** Constructeur privé */  
+    /** Constructeur prive */  
     private GameSheetConfiguration(){
     }
      
     /** Holder */
     private static class GameSheetConfigurationHolder {       
-        /** Instance unique non préinitialisée */
+        /** Instance unique non preinitialisee */
         private final static GameSheetConfiguration instance = new GameSheetConfiguration();
     }
  
-    /** Point d'accès pour l'instance unique du singleton */
+    /** Point d'acces pour l'instance unique du singleton */
     public static GameSheetConfiguration getInstance() {
         return GameSheetConfigurationHolder.instance;
     }
@@ -94,24 +94,24 @@ public class GameSheetConfiguration {
 //    	_map.put("advanced to second, advanced to third on the error.", Play.RUNNER_ADVANCE);
 //    	_map.put("advanced to second, advanced to third on the throw", Play.RUNNER_ADVANCE);
 //    	_map.put("advanced to second, advanced to third on the throw, scored on a throwing error by cf", Play.RUNNER_ADVANCE);
-//    	_map.put("advanced to second, out at second lf to ss.", Play.RUNNER_OUT_AT_SECOND);  // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third 2b to c to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third 2b to ss to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third c to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third c to 3b to c", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third cf to 2b to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third cf to c to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third lf to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third lf to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third rf to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third rf to 3b to p", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third rf to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out on the play, assist by 1b 3b 2b p.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out on the play, assist by c", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out on the play.", Play.RUNNER_OUT_AT_SECOND); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, scored on the error", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, scored on the error, unearned", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, scored on the error, unearned.", Play.SCORE); // TODO gérer ce cas particulier
+//    	_map.put("advanced to second, out at second lf to ss.", Play.RUNNER_OUT_AT_SECOND);  // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third 2b to c to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third 2b to ss to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third c to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third c to 3b to c", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third cf to 2b to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third cf to c to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third lf to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third lf to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third rf to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third rf to 3b to p", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third rf to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out on the play, assist by 1b 3b 2b p.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out on the play, assist by c", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out on the play.", Play.RUNNER_OUT_AT_SECOND); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, scored on the error", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, scored on the error, unearned", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, scored on the error, unearned.", Play.SCORE); // TODO gï¿½rer ce cas particulier
 //    	_map.put("advanced to second.", Play.RUNNER_ADVANCE);
 //    	_map.put("advanced to third", Play.RUNNER_ADVANCE);
 //    	_map.put("advanced to third on a balk", Play.RUNNER_ADVANCE);
@@ -138,38 +138,38 @@ public class GameSheetConfiguration {
 //    	_map.put("advanced to third on the error.", Play.RUNNER_ADVANCE);
 //    	_map.put("advanced to third on the throw", Play.RUNNER_ADVANCE);
 //    	_map.put("advanced to third, advanced to home on a fielder's choice", Play.RUNNER_ADVANCE);
-//    	_map.put("advanced to third, out at home 1b to c to 3b to c.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home 3b to c", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home c to 3b to c.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home cf to c", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home cf to c.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home lf to 3b to p.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home lf to ss to c.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home rf to 1b to c", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home rf to c", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home rf to c.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home rf to p.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at third cf to ss to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out on double play rf to c to ss.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out on the play, assist by 1b", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out on the play.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a fielding error by c", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a fielding error by cf, unearned", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a fielding error by lf.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a fielding error by ss.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a muffed throw by c.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by 2b.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by cf", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by p.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by rf, unearned.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by rf.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by ss", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by ss, unearned.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on an error by c, assist by ss, unearned.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on the error", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on the error, unearned", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on the error, unearned.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on the error.", Play.SCORE); // TODO gérer ce cas particulier
+//    	_map.put("advanced to third, out at home 1b to c to 3b to c.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home 3b to c", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home c to 3b to c.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home cf to c", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home cf to c.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home lf to 3b to p.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home lf to ss to c.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home rf to 1b to c", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home rf to c", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home rf to c.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home rf to p.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at third cf to ss to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out on double play rf to c to ss.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out on the play, assist by 1b", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out on the play.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a fielding error by c", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a fielding error by cf, unearned", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a fielding error by lf.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a fielding error by ss.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a muffed throw by c.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by 2b.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by cf", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by p.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by rf, unearned.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by rf.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by ss", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by ss, unearned.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on an error by c, assist by ss, unearned.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on the error", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on the error, unearned", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on the error, unearned.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on the error.", Play.SCORE); // TODO gï¿½rer ce cas particulier
 //    	_map.put("advanced to third.", Play.RUNNER_ADVANCE);
     	
     	positions.put("doubled", Position.UNLOCATED_BATTED_BALL);
@@ -231,7 +231,7 @@ public class GameSheetConfiguration {
     	positions.put("doubled to left field, advanced to third on the throw", Position.LEFT_FIELD);
     	positions.put("doubled to left field, ground-rule", Position.LEFT_FIELD);
     	positions.put("doubled to left field, ground-rule.", Position.LEFT_FIELD);
-    	positions.put("doubled to left field, out at third lf to ss to 3b.", Position.LEFT_FIELD); // TODO gérer ce cas particulier
+    	positions.put("doubled to left field, out at third lf to ss to 3b.", Position.LEFT_FIELD); // TODO gï¿½rer ce cas particulier
     	positions.put("doubled to left field.", Position.LEFT_FIELD);
     	positions.put("doubled to right center", Position.RIGHT_FIELD);
     	positions.put("doubled to right center (0-0)", Position.RIGHT_FIELD);
@@ -252,8 +252,8 @@ public class GameSheetConfiguration {
     	positions.put("doubled, ground-rule.", Position.UNLOCATED_BATTED_BALL);
     	
 //    	_map.put("failed pickoff attempt", Play.NO_PLAY);
-//    	_map.put("failed pickoff attempt, advanced to second on a throwing error by c, advanced to third on the error.", Play.RUNNER_ADVANCE); // TODO gérer ce cas particulier
-//    	_map.put("failed pickoff attempt, advanced to third on a throwing error by p.", Play.RUNNER_ADVANCE); // TODO gérer ce cas particulier
+//    	_map.put("failed pickoff attempt, advanced to second on a throwing error by c, advanced to third on the error.", Play.RUNNER_ADVANCE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("failed pickoff attempt, advanced to third on a throwing error by p.", Play.RUNNER_ADVANCE); // TODO gï¿½rer ce cas particulier
 //    	_map.put("failed pickoff attempt.", Play.NO_PLAY);
     	
     	positions.put("flied into double play ", Position.UNLOCATED_BATTED_BALL);
@@ -283,6 +283,7 @@ public class GameSheetConfiguration {
     	positions.put("flied out to 3b (2-2 KBBK).", Position.THIRD_BASE);
     	positions.put("flied out to 3b.", Position.THIRD_BASE);
     	positions.put("flied out to c, bunt.", Position.CATCHER);
+    	positions.put("flied out to c.", Position.CATCHER);
     	positions.put("flied out to cf", Position.CENTER_FIELD);
     	positions.put("flied out to cf (0-0).", Position.CENTER_FIELD);
     	positions.put("flied out to cf (0-1 F).", Position.CENTER_FIELD);
@@ -807,13 +808,13 @@ public class GameSheetConfiguration {
     	positions.put("out at first 2b to ss to 1b.", Position.SECOND_BASE);
     	positions.put("out at first 3b to 1b to c (0-1 F)", Position.THIRD_BASE);
     	positions.put("out at first 3b to 2b", Position.THIRD_BASE);
-//    	_map.put("out at first c to 1b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF); // TODO gérer ce cas particulier
-//    	_map.put("out at first c to 1b, picked off.", Play.RUNNER_PICKED_OFF); // TODO gérer ce cas particulier
+//    	_map.put("out at first c to 1b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF); // TODO gï¿½rer ce cas particulier
+//    	_map.put("out at first c to 1b, picked off.", Play.RUNNER_PICKED_OFF); // TODO gï¿½rer ce cas particulier
     	positions.put("out at first c to 1b.", Position.CATCHER);
     	positions.put("out at first c to 2b", Position.CATCHER);
-//    	_map.put("out at first c to 2b to 1b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND); // TODO gérer ce cas particulier
-//    	_map.put("out at first c to ss to 1b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND); // TODO gérer ce cas particulier
-//    	_map.put("out at first p to 1b, picked off.", Play.RUNNER_PICKED_OFF); // TODO gérer ce cas particulier
+//    	_map.put("out at first c to 2b to 1b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND); // TODO gï¿½rer ce cas particulier
+//    	_map.put("out at first c to ss to 1b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND); // TODO gï¿½rer ce cas particulier
+//    	_map.put("out at first p to 1b, picked off.", Play.RUNNER_PICKED_OFF); // TODO gï¿½rer ce cas particulier
     	positions.put("out at first p to 2b", Position.PITCHER);
     	positions.put("out at first p to 2b to 1b.", Position.PITCHER);
     	positions.put("out at first p to 2b.", Position.PITCHER);
@@ -823,16 +824,16 @@ public class GameSheetConfiguration {
     	positions.put("out at first ss to 2b.", Position.SHORTSTOP);
     	
 //    	_map.put("out at home ", Play.NO_PLAY); // RUNNER_OUT_AT_HOME);
-//    	_map.put("out at home 1b to c, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gérer ce cas particulier
+//    	_map.put("out at home 1b to c, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at home 1b to c.", Play.RUNNER_OUT_AT_HOME);
 //    	_map.put("out at home 3b to c.", Play.RUNNER_OUT_AT_HOME);
-//    	_map.put("out at home c to 2b to c, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gérer ce cas particulier
-//    	_map.put("out at home c to 3b to p, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gérer ce cas particulier
+//    	_map.put("out at home c to 2b to c, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at home c to 3b to p, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at home c to p.", Play.RUNNER_OUT_AT_HOME);
 //    	_map.put("out at home c unassisted.", Play.RUNNER_OUT_AT_HOME);
 //    	_map.put("out at home p to 3b to c.", Play.RUNNER_OUT_AT_HOME);
 //    	_map.put("out at home p to c to 3b to p.", Play.RUNNER_OUT_AT_HOME);
-//    	_map.put("out at home p to c, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gérer ce cas particulier
+//    	_map.put("out at home p to c, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at home p to c.", Play.RUNNER_OUT_AT_HOME);
 //    	_map.put("out at home p unassisted.", Play.RUNNER_OUT_AT_HOME);
 //    	_map.put("out at home ss to c.", Play.RUNNER_OUT_AT_HOME);
@@ -848,22 +849,22 @@ public class GameSheetConfiguration {
 //    	_map.put("out at second 3b to 2b.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second 3b to ss.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second 3b unassisted.", Play.RUNNER_OUT_AT_SECOND);
-//    	_map.put("out at second c to 2b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gérer ce cas particulier
-//    	_map.put("out at second c to 3b to 2b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gérer ce cas particulier
-//    	_map.put("out at second c to ss to 2b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gérer ce cas particulier
-//    	_map.put("out at second c to ss, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gérer ce cas particulier
+//    	_map.put("out at second c to 2b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at second c to 3b to 2b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at second c to ss to 2b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at second c to ss, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at second c to ss.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second cf to ss", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second cf to ss.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second lf to 2b.", Play.RUNNER_OUT_AT_SECOND);
-//    	_map.put("out at second p to 1b to 2b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
-//    	_map.put("out at second p to 1b to ss to p, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
-//    	_map.put("out at second p to 1b to ss, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
+//    	_map.put("out at second p to 1b to 2b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at second p to 1b to ss to p, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at second p to 1b to ss, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at second p to 2b.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second p to 3b to ss.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second p to ss", Play.RUNNER_OUT_AT_SECOND);
-//    	_map.put("out at second p to ss, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gérer ce cas particulier
-//    	_map.put("out at second p to ss, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
+//    	_map.put("out at second p to ss, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at second p to ss, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at second p to ss.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second rf to ss", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second rf to ss.", Play.RUNNER_OUT_AT_SECOND);
@@ -876,20 +877,20 @@ public class GameSheetConfiguration {
 //    	_map.put("out at third 3b to c to 3b.", Play.RUNNER_OUT_AT_THIRD);
 //    	_map.put("out at third 3b unassisted", Play.RUNNER_OUT_AT_THIRD);
 //    	_map.put("out at third 3b unassisted.", Play.RUNNER_OUT_AT_THIRD);
-//    	_map.put("out at third c to 2b to 3b, caught stealing.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
-//    	_map.put("out at third c to 3b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_THIRD);// TODO gérer ce cas particulier
-//    	_map.put("out at third c to 3b, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
+//    	_map.put("out at third c to 2b to 3b, caught stealing.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at third c to 3b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_THIRD);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at third c to 3b, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at third c to 3b.", Play.RUNNER_OUT_AT_THIRD);
-//    	_map.put("out at third c to ss to 3b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
+//    	_map.put("out at third c to ss to 3b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at third lf to 3b.", Play.RUNNER_OUT_AT_THIRD);
 //    	_map.put("out at third lf to ss to 3b, on appeal.", Play.RUNNER_OUT_AT_THIRD);
-//    	_map.put("out at third p to 3b to ss to 3b, caught stealing.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
-//    	_map.put("out at third p to 3b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_THIRD);// TODO gérer ce cas particulier
-//    	_map.put("out at third p to 3b, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
+//    	_map.put("out at third p to 3b to ss to 3b, caught stealing.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at third p to 3b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_THIRD);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at third p to 3b, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at third p to 3b.", Play.RUNNER_OUT_AT_THIRD);
 //    	_map.put("out at third p to c to 3b.", Play.RUNNER_OUT_AT_THIRD);
-//    	_map.put("out at third p to ss to 3b to p, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
-//    	_map.put("out at third p to ss to 3b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
+//    	_map.put("out at third p to ss to 3b to p, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at third p to ss to 3b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at third ss to 3b", Play.RUNNER_OUT_AT_THIRD);
 //    	_map.put("out at third ss to 3b.", Play.RUNNER_OUT_AT_THIRD);
     	
@@ -1127,18 +1128,23 @@ public class GameSheetConfiguration {
     	positions.put("reached on a throwing error by ss", Position.SHORTSTOP);
     	positions.put("reached on a throwing error by ss (0-0).", Position.SHORTSTOP);
     	positions.put("reached on a throwing error by ss (0-2 SF)", Position.SHORTSTOP);
+    	positions.put("reached on a throwing error by ss, advanced to second.", Position.SHORTSTOP);
     	positions.put("reached on a throwing error by ss, advanced to second on the error", Position.SHORTSTOP);
     	positions.put("reached on a throwing error by ss, advanced to second on the error.", Position.SHORTSTOP);
     	positions.put("reached on a throwing error by ss, out at second 1b to ss.", Position.SHORTSTOP);
     	positions.put("reached on a throwing error by ss.", Position.SHORTSTOP);
     	
     	positions.put("reached on an error by ", Position.UNLOCATED_BATTED_BALL);
+    	positions.put("reached on an error by 1b.", Position.FIRST_BASE);
     	positions.put("reached on an error by 1b (0-0).", Position.FIRST_BASE);
     	positions.put("reached on an error by 1b, assist by c (0-2 KS)", Position.FIRST_BASE);
+    	positions.put("reached on an error by 2b.", Position.SECOND_BASE);
     	positions.put("reached on an error by 2b (0-0)", Position.SECOND_BASE);
     	positions.put("reached on an error by 2b (3-1 BFBB)", Position.SECOND_BASE);
+    	positions.put("reached on an error by 3b.", Position.THIRD_BASE);
     	positions.put("reached on an error by 3b (2-0 BB)", Position.THIRD_BASE);
     	positions.put("reached on an error by lf (3-2 BSBBF)", Position.LEFT_FIELD);
+    	positions.put("reached on an error by ss.", Position.SHORTSTOP);
     	positions.put("reached on an error by ss (3-1 BBBK)", Position.SHORTSTOP);
     	
     	
@@ -1265,7 +1271,7 @@ public class GameSheetConfiguration {
     	positions.put("singled to center field, advanced to second on the throw (1-0 B)", Position.CENTER_FIELD);
     	positions.put("singled to center field, advanced to second on the throw (1-1 KB)", Position.CENTER_FIELD);
     	positions.put("singled to center field, advanced to second on the throw, advanced to third on an error by c", Position.CENTER_FIELD);
-    	positions.put("singled to center field, out at second lf to ss.", Position.CENTER_FIELD); // TODO gérer ce cas particulier
+    	positions.put("singled to center field, out at second lf to ss.", Position.CENTER_FIELD); // TODO gï¿½rer ce cas particulier
     	positions.put("singled to center field.", Position.CENTER_FIELD);
     	positions.put("singled to first base", Position.FIRST_BASE);
     	positions.put("singled to first base (0-0)", Position.FIRST_BASE);
@@ -1319,8 +1325,8 @@ public class GameSheetConfiguration {
     	positions.put("singled to left field, advanced to second on an error by lf (2-0 BB)",  Position.LEFT_FIELD);
     	positions.put("singled to left field, advanced to second on the throw",  Position.LEFT_FIELD);
     	positions.put("singled to left field, advanced to second on the throw (1-1 FB)",  Position.LEFT_FIELD);
-    	positions.put("singled to left field, out at second lf to 2b.",  Position.LEFT_FIELD); // TODO gérer ce cas particulier
-    	positions.put("singled to left field, out at second lf to 3b to 1b to 2b",  Position.LEFT_FIELD); // TODO gérer ce cas particulier
+    	positions.put("singled to left field, out at second lf to 2b.",  Position.LEFT_FIELD); // TODO gï¿½rer ce cas particulier
+    	positions.put("singled to left field, out at second lf to 3b to 1b to 2b",  Position.LEFT_FIELD); // TODO gï¿½rer ce cas particulier
     	positions.put("singled to left field.",  Position.LEFT_FIELD);
     	positions.put("singled to pitcher", Position.PITCHER);
     	positions.put("singled to pitcher (1-0 B).", Position.PITCHER);
@@ -1381,10 +1387,10 @@ public class GameSheetConfiguration {
     	positions.put("singled to right field, advanced to second on the throw, advanced to third on a throwing error by rf", Position.RIGHT_FIELD);
     	positions.put("singled to right field, advanced to third on a fielding error by rf", Position.RIGHT_FIELD);
     	positions.put("singled to right field, advanced to third on the throw", Position.RIGHT_FIELD);
-    	positions.put("singled to right field, out at second rf to 1b to ss", Position.RIGHT_FIELD); // TODO gérer ce cas particulier
-    	positions.put("singled to right field, out at second rf to c to ss (2-1 BFB)", Position.RIGHT_FIELD); // TODO gérer ce cas particulier
-    	positions.put("singled to right field, out at second rf to ss (2-2 FBBSF)", Position.RIGHT_FIELD); // TODO gérer ce cas particulier
-    	positions.put("singled to right field, out on the play, assist by 1b", Position.RIGHT_FIELD); // TODO gérer ce cas particulier
+    	positions.put("singled to right field, out at second rf to 1b to ss", Position.RIGHT_FIELD); // TODO gï¿½rer ce cas particulier
+    	positions.put("singled to right field, out at second rf to c to ss (2-1 BFB)", Position.RIGHT_FIELD); // TODO gï¿½rer ce cas particulier
+    	positions.put("singled to right field, out at second rf to ss (2-2 FBBSF)", Position.RIGHT_FIELD); // TODO gï¿½rer ce cas particulier
+    	positions.put("singled to right field, out on the play, assist by 1b", Position.RIGHT_FIELD); // TODO gï¿½rer ce cas particulier
     	positions.put("singled to right field.", Position.RIGHT_FIELD);
     	positions.put("singled to second base", Position.SECOND_BASE);
     	positions.put("singled to second base (1-1 KB)", Position.SECOND_BASE);
@@ -1467,11 +1473,11 @@ public class GameSheetConfiguration {
 //    	_map.put("stole second, advanced to third on a wild pitch.", Play.);
 //    	_map.put("stole second, advanced to third on the error", Play.);
 //    	_map.put("stole second, failed pickoff attempt.", Play.);
-//    	_map.put("stole second, out at second cf to ss.", Play.); // TODO gérer ce cas particulier
+//    	_map.put("stole second, out at second cf to ss.", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("stole second.", Play.);
-//    	_map.put("stole third, scored on a throwing error by c, unearned.", Play.); // TODO gérer ce cas particulier
-//    	_map.put("stole third, scored on a throwing error by c.", Play.); // TODO gérer ce cas particulier
-//    	_map.put("stole third, scored on a throwing error by p, unearned.", Play.); // TODO gérer ce cas particulier
+//    	_map.put("stole third, scored on a throwing error by c, unearned.", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("stole third, scored on a throwing error by c.", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("stole third, scored on a throwing error by p, unearned.", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("stole third.", Play.);
     	
     	
@@ -1533,7 +1539,7 @@ public class GameSheetConfiguration {
 //    	_map.put("struck out looking (3-2 FBBKBK).", Play.);
 //    	_map.put("struck out looking (3-2 KBBBFK).", Play.);
 //    	_map.put("struck out looking (3-2 KBBFBFK).", Play.);
-//    	_map.put("struck out looking, reached first on a wild pitch (0-2 FKK).", Play.); // TODO gérer ce cas particulier
+//    	_map.put("struck out looking, reached first on a wild pitch (0-2 FKK).", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("struck out looking.", Play.);
     	
     	
@@ -1631,9 +1637,9 @@ public class GameSheetConfiguration {
 //    	_map.put("struck out swinging to catcher (1-2 KFFBS).", Play.);
 //    	_map.put("struck out swinging to catcher (2-2 FFBFBS).", Play.);
 //    	_map.put("struck out swinging to catcher.", Play.);
-//    	_map.put("struck out swinging, grounded out to c unassisted (0-2 KKF).", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, hit into double play c to 2b (0-2 FKS)", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, hit into double play c to 2b (3-2 KBBFBFS)", Play.); // TODO gérer ce cas particulier
+//    	_map.put("struck out swinging, grounded out to c unassisted (0-2 KKF).", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, hit into double play c to 2b (0-2 FKS)", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, hit into double play c to 2b (3-2 KBBFBFS)", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("struck out swinging, out at first c to 1b", Play.);
 //    	_map.put("struck out swinging, out at first c to 1b (0-2 FFS).", Play.);
 //    	_map.put("struck out swinging, out at first c to 1b (0-2 KKS).", Play.);
@@ -1644,12 +1650,12 @@ public class GameSheetConfiguration {
 //    	_map.put("struck out swinging, out at first c to 1b (1-2 KFBS).", Play.);
 //    	_map.put("struck out swinging, out at first c to 1b (2-2 BFBSS).", Play.);
 //    	_map.put("struck out swinging, out at first c to 1b.", Play.);
-//    	_map.put("struck out swinging, reached first on a passed ball", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, reached first on a passed ball (1-2 BFKS)", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, reached first on a passed ball.", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, reached first on a throwing error by c (1-2 BFFS).", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, reached first on a throwing error by c.", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, reached first on a wild pitch.", Play.); // TODO gérer ce cas particulier
+//    	_map.put("struck out swinging, reached first on a passed ball", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, reached first on a passed ball (1-2 BFKS)", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, reached first on a passed ball.", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, reached first on a throwing error by c (1-2 BFFS).", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, reached first on a throwing error by c.", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, reached first on a wild pitch.", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("struck out swinging.", Play.);
     	
 //    	_map.put("struck out to catcher.", Play.K_SWINGING);
@@ -1710,10 +1716,10 @@ public class GameSheetConfiguration {
     	positions.put("tripled to center field", Position.CENTER_FIELD);
     	positions.put("tripled to center field (1-1 BK)", Position.CENTER_FIELD);
     	positions.put("tripled to center field.", Position.CENTER_FIELD);
-    	positions.put("tripled to first base, scored on the throw",  Position.FIRST_BASE); // TODO gérer ce cas particulier
+    	positions.put("tripled to first base, scored on the throw",  Position.FIRST_BASE); // TODO gï¿½rer ce cas particulier
     	positions.put("tripled to left center", Position.LEFT_FIELD);
     	positions.put("tripled to left center (2-2 BFKB).", Position.LEFT_FIELD);
-    	positions.put("tripled to left center, scored on a muffed throw by 3b.", Position.LEFT_FIELD); // TODO gérer ce cas particulier
+    	positions.put("tripled to left center, scored on a muffed throw by 3b.", Position.LEFT_FIELD); // TODO gï¿½rer ce cas particulier
     	positions.put("tripled to left center.", Position.LEFT_FIELD);
     	positions.put("tripled to left field", Position.LEFT_FIELD);
     	positions.put("tripled to left field.", Position.LEFT_FIELD);
@@ -1790,7 +1796,7 @@ public class GameSheetConfiguration {
 //    	_map.put("walked (3-2 KKFFBBFFBB)", Play.);
 //    	_map.put("walked (3-2 SBBBSFB).", Play.);
 //    	_map.put("walked (3-2 SBKBBB).", Play.);
-//    	_map.put("walked, advanced to second on the throw", Play.); // TODO gérer ce cas particulier
+//    	_map.put("walked, advanced to second on the throw", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("walked.", Play.);
     	
     	
@@ -1869,24 +1875,24 @@ public class GameSheetConfiguration {
 //    	_map.put("advanced to second, advanced to third on the error.", Play.RUNNER_ADVANCE);
 //    	_map.put("advanced to second, advanced to third on the throw", Play.RUNNER_ADVANCE);
 //    	_map.put("advanced to second, advanced to third on the throw, scored on a throwing error by cf", Play.RUNNER_ADVANCE);
-//    	_map.put("advanced to second, out at second lf to ss.", Play.RUNNER_OUT_AT_SECOND);  // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third 2b to c to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third 2b to ss to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third c to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third c to 3b to c", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third cf to 2b to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third cf to c to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third lf to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third lf to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third rf to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third rf to 3b to p", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out at third rf to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out on the play, assist by 1b 3b 2b p.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out on the play, assist by c", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, out on the play.", Play.RUNNER_OUT_AT_SECOND); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, scored on the error", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, scored on the error, unearned", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to second, scored on the error, unearned.", Play.SCORE); // TODO gérer ce cas particulier
+//    	_map.put("advanced to second, out at second lf to ss.", Play.RUNNER_OUT_AT_SECOND);  // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third 2b to c to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third 2b to ss to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third c to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third c to 3b to c", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third cf to 2b to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third cf to c to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third lf to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third lf to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third rf to 3b", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third rf to 3b to p", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out at third rf to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out on the play, assist by 1b 3b 2b p.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out on the play, assist by c", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, out on the play.", Play.RUNNER_OUT_AT_SECOND); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, scored on the error", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, scored on the error, unearned", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to second, scored on the error, unearned.", Play.SCORE); // TODO gï¿½rer ce cas particulier
 //    	_map.put("advanced to second.", Play.RUNNER_ADVANCE);
 //    	_map.put("advanced to third", Play.RUNNER_ADVANCE);
 //    	_map.put("advanced to third on a balk", Play.RUNNER_ADVANCE);
@@ -1913,38 +1919,38 @@ public class GameSheetConfiguration {
 //    	_map.put("advanced to third on the error.", Play.RUNNER_ADVANCE);
 //    	_map.put("advanced to third on the throw", Play.RUNNER_ADVANCE);
 //    	_map.put("advanced to third, advanced to home on a fielder's choice", Play.RUNNER_ADVANCE);
-//    	_map.put("advanced to third, out at home 1b to c to 3b to c.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home 3b to c", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home c to 3b to c.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home cf to c", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home cf to c.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home lf to 3b to p.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home lf to ss to c.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home rf to 1b to c", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home rf to c", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home rf to c.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at home rf to p.", Play.RUNNER_OUT_AT_HOME); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out at third cf to ss to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out on double play rf to c to ss.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out on the play, assist by 1b", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, out on the play.", Play.RUNNER_OUT_AT_THIRD); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a fielding error by c", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a fielding error by cf, unearned", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a fielding error by lf.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a fielding error by ss.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a muffed throw by c.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by 2b.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by cf", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by p.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by rf, unearned.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by rf.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by ss", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on a throwing error by ss, unearned.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on an error by c, assist by ss, unearned.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on the error", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on the error, unearned", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on the error, unearned.", Play.SCORE); // TODO gérer ce cas particulier
-//    	_map.put("advanced to third, scored on the error.", Play.SCORE); // TODO gérer ce cas particulier
+//    	_map.put("advanced to third, out at home 1b to c to 3b to c.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home 3b to c", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home c to 3b to c.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home cf to c", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home cf to c.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home lf to 3b to p.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home lf to ss to c.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home rf to 1b to c", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home rf to c", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home rf to c.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at home rf to p.", Play.RUNNER_OUT_AT_HOME); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out at third cf to ss to 3b.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out on double play rf to c to ss.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out on the play, assist by 1b", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, out on the play.", Play.RUNNER_OUT_AT_THIRD); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a fielding error by c", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a fielding error by cf, unearned", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a fielding error by lf.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a fielding error by ss.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a muffed throw by c.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by 2b.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by cf", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by p.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by rf, unearned.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by rf.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by ss", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on a throwing error by ss, unearned.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on an error by c, assist by ss, unearned.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on the error", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on the error, unearned", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on the error, unearned.", Play.SCORE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("advanced to third, scored on the error.", Play.SCORE); // TODO gï¿½rer ce cas particulier
 //    	_map.put("advanced to third.", Play.RUNNER_ADVANCE);
     	
     	plays.put("Batter set", Play.NO_PLAY);
@@ -2013,7 +2019,7 @@ public class GameSheetConfiguration {
 //    	_map.put("doubled to left field, advanced to third on the throw", Play.SLUGGING_2B);
 //    	_map.put("doubled to left field, ground-rule", Play.SLUGGING_2B);
 //    	_map.put("doubled to left field, ground-rule.", Play.SLUGGING_2B);
-//    	_map.put("doubled to left field, out at third lf to ss to 3b.", Play.SLUGGING_2B); // TODO gérer ce cas particulier
+//    	_map.put("doubled to left field, out at third lf to ss to 3b.", Play.SLUGGING_2B); // TODO gï¿½rer ce cas particulier
 //    	_map.put("doubled to left field.", Play.SLUGGING_2B);
 //    	_map.put("doubled to right center", Play.SLUGGING_2B);
 //    	_map.put("doubled to right center (0-0)", Play.SLUGGING_2B);
@@ -2036,8 +2042,8 @@ public class GameSheetConfiguration {
     	plays.put("Dropped foul ball,", Play.NO_PLAY);
     	
     	plays.put("failed pickoff attempt", Play.NO_PLAY);
-//    	_map.put("failed pickoff attempt, advanced to second on a throwing error by c, advanced to third on the error.", Play.RUNNER_ADVANCE); // TODO gérer ce cas particulier
-//    	_map.put("failed pickoff attempt, advanced to third on a throwing error by p.", Play.RUNNER_ADVANCE); // TODO gérer ce cas particulier
+//    	_map.put("failed pickoff attempt, advanced to second on a throwing error by c, advanced to third on the error.", Play.RUNNER_ADVANCE); // TODO gï¿½rer ce cas particulier
+//    	_map.put("failed pickoff attempt, advanced to third on a throwing error by p.", Play.RUNNER_ADVANCE); // TODO gï¿½rer ce cas particulier
 //    	_map.put("failed pickoff attempt.", Play.NO_PLAY);
     	
     	plays.put("flied into double play ", Play.DOUBLE_PLAY);
@@ -2644,13 +2650,13 @@ public class GameSheetConfiguration {
 //    	_map.put("out at first 2b to ss to 1b.", Play.OUT);
 //    	_map.put("out at first 3b to 1b to c (0-1 F)", Play.OUT);
 //    	_map.put("out at first 3b to 2b", Play.OUT);
-//    	_map.put("out at first c to 1b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF); // TODO gérer ce cas particulier
-//    	_map.put("out at first c to 1b, picked off.", Play.RUNNER_PICKED_OFF); // TODO gérer ce cas particulier
+//    	_map.put("out at first c to 1b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF); // TODO gï¿½rer ce cas particulier
+//    	_map.put("out at first c to 1b, picked off.", Play.RUNNER_PICKED_OFF); // TODO gï¿½rer ce cas particulier
 //    	_map.put("out at first c to 1b.", Play.OUT);
 //    	_map.put("out at first c to 2b", Play.OUT);
-//    	_map.put("out at first c to 2b to 1b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND); // TODO gérer ce cas particulier
-//    	_map.put("out at first c to ss to 1b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND); // TODO gérer ce cas particulier
-//    	_map.put("out at first p to 1b, picked off.", Play.RUNNER_PICKED_OFF); // TODO gérer ce cas particulier
+//    	_map.put("out at first c to 2b to 1b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND); // TODO gï¿½rer ce cas particulier
+//    	_map.put("out at first c to ss to 1b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND); // TODO gï¿½rer ce cas particulier
+//    	_map.put("out at first p to 1b, picked off.", Play.RUNNER_PICKED_OFF); // TODO gï¿½rer ce cas particulier
 //    	_map.put("out at first p to 2b", Play.OUT);
 //    	_map.put("out at first p to 2b to 1b.", Play.OUT);
 //    	_map.put("out at first p to 2b.", Play.OUT);
@@ -2660,16 +2666,16 @@ public class GameSheetConfiguration {
 //    	_map.put("out at first ss to 2b.", Play.OUT);
     	
     	plays.put("out at home ", Play.RUNNER_OUT_AT_HOME);
-//    	_map.put("out at home 1b to c, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gérer ce cas particulier
+//    	_map.put("out at home 1b to c, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at home 1b to c.", Play.RUNNER_OUT_AT_HOME);
 //    	_map.put("out at home 3b to c.", Play.RUNNER_OUT_AT_HOME);
-//    	_map.put("out at home c to 2b to c, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gérer ce cas particulier
-//    	_map.put("out at home c to 3b to p, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gérer ce cas particulier
+//    	_map.put("out at home c to 2b to c, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at home c to 3b to p, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at home c to p.", Play.RUNNER_OUT_AT_HOME);
 //    	_map.put("out at home c unassisted.", Play.RUNNER_OUT_AT_HOME);
 //    	_map.put("out at home p to 3b to c.", Play.RUNNER_OUT_AT_HOME);
 //    	_map.put("out at home p to c to 3b to p.", Play.RUNNER_OUT_AT_HOME);
-//    	_map.put("out at home p to c, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gérer ce cas particulier
+//    	_map.put("out at home p to c, caught stealing.", Play.RUNNER_CAUGHT_STEALING_HOME);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at home p to c.", Play.RUNNER_OUT_AT_HOME);
 //    	_map.put("out at home p unassisted.", Play.RUNNER_OUT_AT_HOME);
 //    	_map.put("out at home ss to c.", Play.RUNNER_OUT_AT_HOME);
@@ -2685,22 +2691,22 @@ public class GameSheetConfiguration {
 //    	_map.put("out at second 3b to 2b.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second 3b to ss.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second 3b unassisted.", Play.RUNNER_OUT_AT_SECOND);
-//    	_map.put("out at second c to 2b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gérer ce cas particulier
-//    	_map.put("out at second c to 3b to 2b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gérer ce cas particulier
-//    	_map.put("out at second c to ss to 2b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gérer ce cas particulier
-//    	_map.put("out at second c to ss, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gérer ce cas particulier
+//    	_map.put("out at second c to 2b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at second c to 3b to 2b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at second c to ss to 2b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at second c to ss, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at second c to ss.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second cf to ss", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second cf to ss.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second lf to 2b.", Play.RUNNER_OUT_AT_SECOND);
-//    	_map.put("out at second p to 1b to 2b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
-//    	_map.put("out at second p to 1b to ss to p, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
-//    	_map.put("out at second p to 1b to ss, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
+//    	_map.put("out at second p to 1b to 2b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at second p to 1b to ss to p, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at second p to 1b to ss, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at second p to 2b.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second p to 3b to ss.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second p to ss", Play.RUNNER_OUT_AT_SECOND);
-//    	_map.put("out at second p to ss, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gérer ce cas particulier
-//    	_map.put("out at second p to ss, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
+//    	_map.put("out at second p to ss, caught stealing.", Play.RUNNER_CAUGHT_STEALING_SECOND);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at second p to ss, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at second p to ss.", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second rf to ss", Play.RUNNER_OUT_AT_SECOND);
 //    	_map.put("out at second rf to ss.", Play.RUNNER_OUT_AT_SECOND);
@@ -2713,33 +2719,33 @@ public class GameSheetConfiguration {
 //    	_map.put("out at third 3b to c to 3b.", Play.RUNNER_OUT_AT_THIRD);
 //    	_map.put("out at third 3b unassisted", Play.RUNNER_OUT_AT_THIRD);
 //    	_map.put("out at third 3b unassisted.", Play.RUNNER_OUT_AT_THIRD);
-//    	_map.put("out at third c to 2b to 3b, caught stealing.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
-//    	_map.put("out at third c to 3b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_THIRD);// TODO gérer ce cas particulier
-//    	_map.put("out at third c to 3b, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
+//    	_map.put("out at third c to 2b to 3b, caught stealing.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at third c to 3b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_THIRD);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at third c to 3b, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at third c to 3b.", Play.RUNNER_OUT_AT_THIRD);
-//    	_map.put("out at third c to ss to 3b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
+//    	_map.put("out at third c to ss to 3b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at third lf to 3b.", Play.RUNNER_OUT_AT_THIRD);
 //    	_map.put("out at third lf to ss to 3b, on appeal.", Play.RUNNER_OUT_AT_THIRD);
-//    	_map.put("out at third p to 3b to ss to 3b, caught stealing.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
-//    	_map.put("out at third p to 3b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_THIRD);// TODO gérer ce cas particulier
-//    	_map.put("out at third p to 3b, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
+//    	_map.put("out at third p to 3b to ss to 3b, caught stealing.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at third p to 3b, caught stealing.", Play.RUNNER_CAUGHT_STEALING_THIRD);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at third p to 3b, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at third p to 3b.", Play.RUNNER_OUT_AT_THIRD);
 //    	_map.put("out at third p to c to 3b.", Play.RUNNER_OUT_AT_THIRD);
-//    	_map.put("out at third p to ss to 3b to p, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
-//    	_map.put("out at third p to ss to 3b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gérer ce cas particulier
+//    	_map.put("out at third p to ss to 3b to p, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
+//    	_map.put("out at third p to ss to 3b, caught stealing, picked off.", Play.RUNNER_PICKED_OFF);// TODO gï¿½rer ce cas particulier
 //    	_map.put("out at third ss to 3b", Play.RUNNER_OUT_AT_THIRD);
 //    	_map.put("out at third ss to 3b.", Play.RUNNER_OUT_AT_THIRD);
 
-    	plays.put("out by rule - Batter's interference ", Play.RUNNER_OUT_AT_SECOND);// TODO à vérifier
-    	plays.put("out by rule - Bunted foul on third strike ", Play.OBR);// TODO à vérifier
-    	plays.put("out by rule - Interference by preceding runner ", Play.OBR);// TODO à vérifier
+    	plays.put("out by rule - Batter's interference ", Play.RUNNER_OUT_AT_SECOND);// TODO ï¿½ vï¿½rifier
+    	plays.put("out by rule - Bunted foul on third strike ", Play.OBR);// TODO ï¿½ vï¿½rifier
+    	plays.put("out by rule - Interference by preceding runner ", Play.OBR);// TODO ï¿½ vï¿½rifier
     	plays.put("out by rule - Interference by the batter ", Play.NO_PLAY);
     	plays.put("out by rule - Runner interfered with fielder ", Play.NO_PLAY);
-    	plays.put("out by rule - Running out of line ", Play.OBR); // TODO à vérifier
-    	plays.put("out by rule - Touched by own batted ball ", Play.OBR);// TODO à vérifier
+    	plays.put("out by rule - Running out of line ", Play.OBR); // TODO ï¿½ vï¿½rifier
+    	plays.put("out by rule - Touched by own batted ball ", Play.OBR);// TODO ï¿½ vï¿½rifier
     	plays.put("out by rule - Touched by fair ball ", Play.NO_PLAY);
     	plays.put("out by rule - Infield fly not caught ", Play.NO_PLAY);
-    	plays.put("out on batter's interference", Play.OBR);// TODO à vérifier
+    	plays.put("out on batter's interference", Play.OBR);// TODO ï¿½ vï¿½rifier
 //    	_map.put("out on batter's interference (2-2 KBBS).", Play.OBR);
     	
     	plays.put("out on double play ", Play.RUNNER_OUT_ON_THE_PLAY);
@@ -2977,7 +2983,7 @@ public class GameSheetConfiguration {
 //    	_map.put("reached on a throwing error by ss (0-2 SF)", Play.);
 //    	_map.put("reached on a throwing error by ss, advanced to second on the error", Play.);
 //    	_map.put("reached on a throwing error by ss, advanced to second on the error.", Play.);
-//    	_map.put("reached on a throwing error by ss, out at second 1b to ss.", Play.); // TODO gérer ce cas particulier
+//    	_map.put("reached on a throwing error by ss, out at second 1b to ss.", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("reached on a throwing error by ss.", Play.);
     	
     	plays.put("reached on an error by ", Play.SAFE_ON_ERROR);
@@ -3116,7 +3122,7 @@ public class GameSheetConfiguration {
 //    	_map.put("singled to center field, advanced to second on the throw (1-0 B)", Play.);
 //    	_map.put("singled to center field, advanced to second on the throw (1-1 KB)", Play.);
 //    	_map.put("singled to center field, advanced to second on the throw, advanced to third on an error by c", Play.);
-//    	_map.put("singled to center field, out at second lf to ss.", Play.); // TODO gérer ce cas particulier
+//    	_map.put("singled to center field, out at second lf to ss.", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("singled to center field.", Play.);
 //    	_map.put("singled to first base", Play.);
 //    	_map.put("singled to first base (0-0)", Play.);
@@ -3170,8 +3176,8 @@ public class GameSheetConfiguration {
 //    	_map.put("singled to left field, advanced to second on an error by lf (2-0 BB)", Play.);
 //    	_map.put("singled to left field, advanced to second on the throw", Play.);
 //    	_map.put("singled to left field, advanced to second on the throw (1-1 FB)", Play.);
-//    	_map.put("singled to left field, out at second lf to 2b.", Play.); // TODO gérer ce cas particulier
-//    	_map.put("singled to left field, out at second lf to 3b to 1b to 2b", Play.); // TODO gérer ce cas particulier
+//    	_map.put("singled to left field, out at second lf to 2b.", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("singled to left field, out at second lf to 3b to 1b to 2b", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("singled to left field.", Play.);
 //    	_map.put("singled to pitcher", Play.);
 //    	_map.put("singled to pitcher (1-0 B).", Play.);
@@ -3232,10 +3238,10 @@ public class GameSheetConfiguration {
 //    	_map.put("singled to right field, advanced to second on the throw, advanced to third on a throwing error by rf", Play.);
 //    	_map.put("singled to right field, advanced to third on a fielding error by rf", Play.);
 //    	_map.put("singled to right field, advanced to third on the throw", Play.);
-//    	_map.put("singled to right field, out at second rf to 1b to ss", Play.); // TODO gérer ce cas particulier
-//    	_map.put("singled to right field, out at second rf to c to ss (2-1 BFB)", Play.); // TODO gérer ce cas particulier
-//    	_map.put("singled to right field, out at second rf to ss (2-2 FBBSF)", Play.); // TODO gérer ce cas particulier
-//    	_map.put("singled to right field, out on the play, assist by 1b", Play.); // TODO gérer ce cas particulier
+//    	_map.put("singled to right field, out at second rf to 1b to ss", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("singled to right field, out at second rf to c to ss (2-1 BFB)", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("singled to right field, out at second rf to ss (2-2 FBBSF)", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("singled to right field, out on the play, assist by 1b", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("singled to right field.", Play.);
 //    	_map.put("singled to second base", Play.);
 //    	_map.put("singled to second base (1-1 KB)", Play.);
@@ -3318,11 +3324,11 @@ public class GameSheetConfiguration {
 //    	_map.put("stole second, advanced to third on a wild pitch.", Play.);
 //    	_map.put("stole second, advanced to third on the error", Play.);
 //    	_map.put("stole second, failed pickoff attempt.", Play.);
-//    	_map.put("stole second, out at second cf to ss.", Play.); // TODO gérer ce cas particulier
+//    	_map.put("stole second, out at second cf to ss.", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("stole second.", Play.);
-//    	_map.put("stole third, scored on a throwing error by c, unearned.", Play.); // TODO gérer ce cas particulier
-//    	_map.put("stole third, scored on a throwing error by c.", Play.); // TODO gérer ce cas particulier
-//    	_map.put("stole third, scored on a throwing error by p, unearned.", Play.); // TODO gérer ce cas particulier
+//    	_map.put("stole third, scored on a throwing error by c, unearned.", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("stole third, scored on a throwing error by c.", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("stole third, scored on a throwing error by p, unearned.", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("stole third.", Play.);
     	
     	
@@ -3384,7 +3390,7 @@ public class GameSheetConfiguration {
 //    	_map.put("struck out looking (3-2 FBBKBK).", Play.);
 //    	_map.put("struck out looking (3-2 KBBBFK).", Play.);
 //    	_map.put("struck out looking (3-2 KBBFBFK).", Play.);
-//    	_map.put("struck out looking, reached first on a wild pitch (0-2 FKK).", Play.); // TODO gérer ce cas particulier
+//    	_map.put("struck out looking, reached first on a wild pitch (0-2 FKK).", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("struck out looking.", Play.);
     	
     	
@@ -3482,9 +3488,9 @@ public class GameSheetConfiguration {
 //    	_map.put("struck out swinging to catcher (1-2 KFFBS).", Play.);
 //    	_map.put("struck out swinging to catcher (2-2 FFBFBS).", Play.);
 //    	_map.put("struck out swinging to catcher.", Play.);
-//    	_map.put("struck out swinging, grounded out to c unassisted (0-2 KKF).", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, hit into double play c to 2b (0-2 FKS)", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, hit into double play c to 2b (3-2 KBBFBFS)", Play.); // TODO gérer ce cas particulier
+//    	_map.put("struck out swinging, grounded out to c unassisted (0-2 KKF).", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, hit into double play c to 2b (0-2 FKS)", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, hit into double play c to 2b (3-2 KBBFBFS)", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("struck out swinging, out at first c to 1b", Play.);
 //    	_map.put("struck out swinging, out at first c to 1b (0-2 FFS).", Play.);
 //    	_map.put("struck out swinging, out at first c to 1b (0-2 KKS).", Play.);
@@ -3495,12 +3501,12 @@ public class GameSheetConfiguration {
 //    	_map.put("struck out swinging, out at first c to 1b (1-2 KFBS).", Play.);
 //    	_map.put("struck out swinging, out at first c to 1b (2-2 BFBSS).", Play.);
 //    	_map.put("struck out swinging, out at first c to 1b.", Play.);
-//    	_map.put("struck out swinging, reached first on a passed ball", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, reached first on a passed ball (1-2 BFKS)", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, reached first on a passed ball.", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, reached first on a throwing error by c (1-2 BFFS).", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, reached first on a throwing error by c.", Play.); // TODO gérer ce cas particulier
-//    	_map.put("struck out swinging, reached first on a wild pitch.", Play.); // TODO gérer ce cas particulier
+//    	_map.put("struck out swinging, reached first on a passed ball", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, reached first on a passed ball (1-2 BFKS)", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, reached first on a passed ball.", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, reached first on a throwing error by c (1-2 BFFS).", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, reached first on a throwing error by c.", Play.); // TODO gï¿½rer ce cas particulier
+//    	_map.put("struck out swinging, reached first on a wild pitch.", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("struck out swinging.", Play.);
     	
     	plays.put("struck out to catcher.", Play.K_SWINGING);
@@ -3561,10 +3567,10 @@ public class GameSheetConfiguration {
 //    	_map.put("tripled to center field", Play.);
 //    	_map.put("tripled to center field (1-1 BK)", Play.);
 //    	_map.put("tripled to center field.", Play.);
-//    	_map.put("tripled to first base, scored on the throw", Play.); // TODO gérer ce cas particulier
+//    	_map.put("tripled to first base, scored on the throw", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("tripled to left center", Play.);
 //    	_map.put("tripled to left center (2-2 BFKB).", Play.);
-//    	_map.put("tripled to left center, scored on a muffed throw by 3b.", Play.); // TODO gérer ce cas particulier
+//    	_map.put("tripled to left center, scored on a muffed throw by 3b.", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("tripled to left center.", Play.);
 //    	_map.put("tripled to left field", Play.);
 //    	_map.put("tripled to left field.", Play.);
@@ -3641,7 +3647,7 @@ public class GameSheetConfiguration {
 //    	_map.put("walked (3-2 KKFFBBFFBB)", Play.);
 //    	_map.put("walked (3-2 SBBBSFB).", Play.);
 //    	_map.put("walked (3-2 SBKBBB).", Play.);
-//    	_map.put("walked, advanced to second on the throw", Play.); // TODO gérer ce cas particulier
+//    	_map.put("walked, advanced to second on the throw", Play.); // TODO gï¿½rer ce cas particulier
 //    	_map.put("walked.", Play.);
     	
     	return plays;

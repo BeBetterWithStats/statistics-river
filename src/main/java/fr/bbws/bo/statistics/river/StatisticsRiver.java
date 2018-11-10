@@ -31,8 +31,8 @@ public class StatisticsRiver {
 		long begin = System.currentTimeMillis();
 
 		ArrayList<Path> file_directories = new ArrayList<Path>();
-		// file_directories.add(Paths.get("/Users/alexandrelods/Documents/Developpement/bbws/Games/ForTest"));
-		file_directories.add(Paths.get("D:\\A352189\\Sources\\Games\\ForTest"));
+		file_directories.add(Paths.get("/Users/alexandrelods/Documents/Developpement/bbws/Games/ForTest"));
+		// file_directories.add(Paths.get("D:\\A352189\\Sources\\Games\\ForTest"));
 
 		logger.info("##########  ----------------------------- ##########");
 		logger.info("##########  BASEBALL GAME UTILS GENERATOR ##########");
@@ -72,20 +72,41 @@ public class StatisticsRiver {
 							
 							// ####  2  ### on recherche les attributs 'field', 'date' et 'home plat umpire'
 														
-							/*
-							 * TODO revoir le format de la date
-							 * 
-							 * date_hour_minute_second or strict_date_hour_minute_second 
-							 * A formatter that combines a full date, two digit hour of day, two digit minute of hour, and two digit second of minute : yyyy-MM-dd'T'HH:mm:ss.
-							 */
-							DateTimeFormatter _formatter = DateTimeFormatter.ofPattern("MMM d, yyyy HH:mm", Locale.ENGLISH);
-							LocalDateTime _localDate = LocalDateTime.parse(searchDate(buffer.toString()) + " " + searchTime(buffer.toString()), _formatter);
+							
+							LocalDateTime _localDate = null;
+							try {
+								
+								DateTimeFormatter _formatter = DateTimeFormatter.ofPattern("MMM d, yyyy HH:mm", Locale.ENGLISH);
+								_localDate = LocalDateTime.parse(searchDate(buffer.toString()) + " " + searchTime(buffer.toString()), _formatter);
+							
+							} catch (Exception e) {
+								
+								try {
+									
+									DateTimeFormatter _formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH,mm", Locale.FRANCE);
+									_localDate = LocalDateTime.parse(searchDate(buffer.toString()) + " " + searchTime(buffer.toString()), _formatter);
+									
+								} catch (Exception e1) {
+									
+									try {
+										
+										DateTimeFormatter _formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm", Locale.FRANCE);
+										_localDate = LocalDateTime.parse(searchDate(buffer.toString()) + " " + searchTime(buffer.toString()), _formatter);
+										
+									} catch (Exception e2) {
+										logger.error("[_date & heure] = date can not be parsed in file [{}]", _current_file);
+										logger.error("[_date] = {}", searchDate(buffer.toString()));
+										logger.error("[_heure] = {}", searchTime(buffer.toString()));
+									}
+								}
+							}
+							logger.debug("[_date & heure] = {}", _localDate);
+							
 							String _umpire = searchHomePlateUmpire(buffer.toString());
 							String _field = searchField(buffer.toString());
 							
-							logger.info("_umpire = {}", _umpire);
-							logger.info("_date & heure = {}", _localDate);
-							logger.info("_field = {}", _field);
+							logger.debug("[_umpire] = {}", _umpire);
+							logger.debug("[_field] = {}", _field);
 							
 							
 							// ####  3  ### on recherche le nom de chaque equipe
@@ -97,8 +118,8 @@ public class StatisticsRiver {
 							// ####  4  ### on recherche le line up de chaque equipe
 							List<Player> _awayTeam = searchAwayTeamStartingLineUp( buffer.toString());
 							
-							logger.info("_away team = {}", _awayTeamName);
-							logger.info("_away team = {}", _awayTeam);
+							logger.trace("[_away team name] = {}", _awayTeamName);
+							logger.debug("[_away team] = {}", _awayTeam);
 							
 							
 							ConsoleService.generateDocuments(
@@ -125,8 +146,8 @@ public class StatisticsRiver {
 							
 							List<Player> _homeTeam = searchHomeTeamStartingLineUp( buffer.toString());
 							
-							logger.info("_home team = {}",_homeTeamName);
-							logger.info("_home team = {}", _homeTeam);
+							logger.trace("[_home team name] = {}",_homeTeamName);
+							logger.debug("[_home team] = {}", _homeTeam);
 							
 							
 							ConsoleService.generateDocuments(
