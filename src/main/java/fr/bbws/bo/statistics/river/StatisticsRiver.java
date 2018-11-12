@@ -31,8 +31,8 @@ public class StatisticsRiver {
 		long begin = System.currentTimeMillis();
 
 		ArrayList<Path> file_directories = new ArrayList<Path>();
-		file_directories.add(Paths.get("/Users/alexandrelods/Documents/Developpement/bbws/Games/ForTest"));
-		// file_directories.add(Paths.get("D:\\A352189\\Sources\\Games\\ForTest"));
+		// file_directories.add(Paths.get("/Users/alexandrelods/Documents/Developpement/bbws/Games/ForTest"));
+		file_directories.add(Paths.get("D:\\A352189\\Sources\\Games\\ForTest"));
 
 		logger.info("##########  ----------------------------- ##########");
 		logger.info("##########  BASEBALL GAME UTILS GENERATOR ##########");
@@ -60,6 +60,7 @@ public class StatisticsRiver {
 					while (iterator.hasNext()) {
 
 						Path _current_file = iterator.next();
+						logger.info("[[_file] = BEGIN [{}", _current_file);
 						
 						if (!_current_file.toString().endsWith("DS_Store")) { // pour eviter les pb sur MAC OS
 							
@@ -100,7 +101,7 @@ public class StatisticsRiver {
 									}
 								}
 							}
-							logger.debug("[_date & heure] = {}", _localDate);
+							logger.info("[_date & heure] = {}", _localDate);
 							
 							String _umpire = searchHomePlateUmpire(buffer.toString());
 							String _field = searchField(buffer.toString());
@@ -118,8 +119,8 @@ public class StatisticsRiver {
 							// ####  4  ### on recherche le line up de chaque equipe
 							List<Player> _awayTeam = searchAwayTeamStartingLineUp( buffer.toString());
 							
-							logger.trace("[_away team name] = {}", _awayTeamName);
-							logger.debug("[_away team] = {}", _awayTeam);
+							logger.debug("[_away team name] = {}", _awayTeamName);
+							logger.info("[_away team] = {}", _awayTeam);
 							
 							/*
 							ConsoleService.generateDocuments(
@@ -146,8 +147,8 @@ public class StatisticsRiver {
 							
 							List<Player> _homeTeam = searchHomeTeamStartingLineUp( buffer.toString());
 							
-							logger.trace("[_home team name] = {}",_homeTeamName);
-							logger.debug("[_home team] = {}", _homeTeam);
+							logger.debug("[_home team name] = {}",_homeTeamName);
+							logger.info("[_home team] = {}", _homeTeam);
 							
 							/*
 							ConsoleService.generateDocuments(
@@ -171,6 +172,7 @@ public class StatisticsRiver {
 							
 						}					
 						
+						logger.info("[_file] = END [{}]", _current_file);
 					} // ############## FIN DU FICHIER COURANT
 				} finally {
 					stream.close();
