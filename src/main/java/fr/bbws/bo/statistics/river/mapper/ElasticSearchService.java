@@ -147,7 +147,7 @@ for (String _inning : innings) {
 					
 						logger.debug("    [__PLAY] = {}", __play);
 						
-						_playerID = SearchInFileUtils.searchUppercaseWordFromBeginning(__play.replaceAll("::: ", ""));
+						_playerID = SearchInFileUtils.searchPlayerNameFromPlay(__play.replaceAll("::: ", ""));
 						logger.debug("        [_PLAYERID] = {}", _playerID);
 						
 						_keyword = __play.replaceAll(", SAC", "")

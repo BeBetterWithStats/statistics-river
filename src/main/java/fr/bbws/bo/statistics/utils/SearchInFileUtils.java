@@ -61,6 +61,35 @@ public class SearchInFileUtils {
 			return null;
 		}
 	}
+	
+
+	/*
+	 * Find the first uppercase words of a sentence
+	 */
+	public static String searchPlayerNameFromPlay(String play) {
+
+		String response = "";
+		String[] strings = play.replaceAll("-", " ").split(" ");
+		/*
+		 * TODO traiter les caracteres speciaux '_', ',', ';' qui font que
+		 * le nom de l'arbitre arrive en minuscule
+		 */
+		
+		for (String _string : strings) {
+
+			if (StringUtils.isAllUpperCase(_string.substring(0, 1))) {
+				response += _string + " ";
+			} else {
+				break;
+			}
+		}
+		
+		if (response.length() > 0) {
+			return response.trim();
+		} else {
+			return null;
+		}
+	}
 
 	/*
 	 *  @return the first words of a sentence before a specific word without space before and after

@@ -60,6 +60,7 @@ La rivière générant les actions à partir des différents sites web qui hébe
 - [x] Revoir le format de la date de chaque document
 - [x] Ajouter un index permettant de trier une liste de document ES _play_ 
 - [x] Faire un renommage des variables dans la classes StatisticsRiver
+- [x] Revoir le mécanisme de recherche du nom du joueur dans les _play_
 
 
 # Normes de code
