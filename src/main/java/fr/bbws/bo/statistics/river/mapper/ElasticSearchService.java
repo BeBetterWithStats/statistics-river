@@ -114,9 +114,12 @@ public class ElasticSearchService {
 		String _keyword = null;
 		
 		
+		
+		
+		
 // ############## DECOUPER CHAQUE INNING EN ACTION
 
-for (String _inning : innings) {
+		for (String _inning : innings) {
 			
 			_inning = _inning.replaceAll("</font>", "</font>#").replaceAll("\\. ", "\\.#");
 			_when = SearchInFileUtils.searchBetween(_inning, p_players.get(0).getTeam(), "- </b>");
@@ -187,6 +190,8 @@ for (String _inning : innings) {
 						
 						if ( Position.UNDEFINED == _where && !GameSheetConfiguration.getInstance().shouldPositionBeEmpty(_keyword)) {
 							logger.error("        [_WHERE] \'{}\' in file [{}] not found GameSheetConfiguration.loadAllPositions", _keyword, p_file); // TODO remettre en error
+						} else {
+							_where = Position.EMPTY;
 						}
 						
 						// MATCH WITH ONE OF THE 
