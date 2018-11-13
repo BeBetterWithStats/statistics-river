@@ -3,6 +3,8 @@ package fr.bbws.bo.statistics.river.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Singleton thread safe
  * (se referer a l'article de JM Doudoux https://www.jmdoudoux.fr/java/dej/chap-design-patterns.htm)
@@ -25,6 +27,54 @@ public class GameSheetConfiguration {
         return GameSheetConfigurationHolder.instance;
     }
 	
+    public boolean shouldPositionBeEmpty(String p_play) {
+    	
+    	
+    	if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("advanced to")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("failed pickoff")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("hit by pitch")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("intentionally walked")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("no advance")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("- On the same play -")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("out at home")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("out at thrid")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("out at second")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("out on batter's interference")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("out on double play")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("out on the play")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("pinch hit")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("pinch ran")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("placed on first")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("placed on second")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("scored")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("stole")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("struck out")) {
+    		return true;
+    	} else if ( StringUtils.isNotEmpty(p_play) && p_play.startsWith("walked")) {
+    		return true;
+    	}
+    	
+    	return true;
+    }
+    
     /** return all batted baseballs by hitters */
     public Map<String, Position> loadAllPositions() {
 
