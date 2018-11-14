@@ -188,10 +188,12 @@ public class ElasticSearchService {
 							}
 						}
 						
-						if ( Position.UNDEFINED == _where && !GameSheetConfiguration.getInstance().shouldPositionBeEmpty(_keyword)) {
-							logger.error("        [_WHERE] \'{}\' in file [{}] not found GameSheetConfiguration.loadAllPositions", _keyword, p_file); // TODO remettre en error
-						} else {
-							_where = Position.EMPTY;
+						if ( Position.UNDEFINED == _where) {
+							if (!GameSheetConfiguration.getInstance().shouldPositionBeEmpty(_keyword)) {
+								logger.error("        [_WHERE] \'{}\' in file [{}] not found GameSheetConfiguration.loadAllPositions", _keyword, p_file); // TODO remettre en error
+							} else {
+								_where = Position.EMPTY;
+							}
 						}
 						
 						// MATCH WITH ONE OF THE 
