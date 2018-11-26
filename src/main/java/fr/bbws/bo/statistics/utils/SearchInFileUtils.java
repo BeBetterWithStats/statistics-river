@@ -64,7 +64,7 @@ public class SearchInFileUtils {
 	
 
 	/*
-	 * Find the first uppercase words of a sentence
+	 * Find the player's name in a sentence. The name could be 'PERDOMO' ou 'PERDOMO A' ou 'PERDOMO Al'
 	 */
 	public static String searchPlayerNameFromPlay(String play) {
 
@@ -76,7 +76,6 @@ public class SearchInFileUtils {
 		 */
 		
 		for (String _string : strings) {
-
 			if (StringUtils.isAllUpperCase(_string.substring(0, 1))) {
 				response += _string + " ";
 			} else {

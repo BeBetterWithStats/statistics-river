@@ -31,8 +31,8 @@ public class StatisticsRiver {
 		long begin = System.currentTimeMillis();
 
 		ArrayList<Path> file_directories = new ArrayList<Path>();
-		// file_directories.add(Paths.get("/Users/alexandrelods/Documents/Developpement/bbws/Games/ForTest"));
-		file_directories.add(Paths.get("D:\\A352189\\Sources\\Games\\ForTest"));
+		file_directories.add(Paths.get("/Users/alexandrelods/Documents/Developpement/bbws/Games/ForTest"));
+		// file_directories.add(Paths.get("D:\\A352189\\Sources\\Games\\ForTest"));
 
 		logger.info("##########  ----------------------------- ##########");
 		logger.info("##########  BASEBALL GAME UTILS GENERATOR ##########");
@@ -60,7 +60,7 @@ public class StatisticsRiver {
 					while (iterator.hasNext()) {
 
 						Path _current_file = iterator.next();
-						logger.info("[[_file] = BEGIN [{}", _current_file);
+						logger.info("[_file] = BEGIN [{}", _current_file);
 						
 						if (!_current_file.toString().endsWith("DS_Store")) { // pour eviter les pb sur MAC OS
 							
